@@ -1,24 +1,64 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|password|integer|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :questions
+- has_many :answers
 
-* Ruby version
 
-* System dependencies
+## Questionsテーブル
 
-* Configuration
+|Column|Type|Options|
+|------|----|-------|
+|content|text|null: false|
 
-* Database creation
+### Association
 
-* Database initialization
+has_many :answers
+belongs_to :curriculum
+belongs_to :user
 
-* How to run the test suite
+## Answersテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|theory|string|null: false|
+|action|string|null: false|
+|tip|string|null: false|
+|question|references|null: false, foreign_key: true|
 
-* Deployment instructions
+### Association
+- has_many :questions
+- belongs_to :user
+- has_many :comments
 
-* ...
+## curriculumsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|app|string|null: false|
+|phase|string|null :false|
+|url|string|null :false|
+
+### Association
+- has_many :questions
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|comment|string|null :false|
+|answer|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :answer
+- belongs_to :user
+
+
