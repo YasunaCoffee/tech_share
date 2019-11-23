@@ -30,7 +30,7 @@ belongs_to :user
 |theory|string|null: false|
 |action|string|null: false|
 |tip|string|null: false|
-|question_id|integer|null: false, foreign_key: true|
+|question|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :questions
