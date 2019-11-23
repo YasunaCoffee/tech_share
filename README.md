@@ -2,9 +2,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, foreign_key: true, unique: true|
-|email|string|null: false, foreign_key: true, unique: true|
-|password|integer|null: false, foreign_key: true|
+|nickname|string|null: false, unique: true|
+|email|string|null: false,, unique: true|
+|password|integer|null: false|
 
 ### Association
 - has_many :groups, through: :members
@@ -53,8 +53,8 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |comment|string|null :false|
-|answer_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|answer|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 
 ### Association
