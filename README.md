@@ -3,12 +3,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
-|email|string|null: false,, unique: true|
+|email|string|null: false, unique: true|
 |password|integer|null: false|
 
 ### Association
-- has_many :groups, through: :members
-- has_many :messages
+- has_many :questions
+- has_many :answers
 
 
 ## Questionsテーブル
