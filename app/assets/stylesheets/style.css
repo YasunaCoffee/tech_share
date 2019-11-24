@@ -1,5 +1,5 @@
 body {
-  background-color: #FEEABC;
+  background-color: #F0EBEB;
   font-size: 14px;
   color: #333;
   margin: 0 auto;
@@ -12,8 +12,13 @@ h1,h2,h3,h4,h5,h6,p {
 
 a{
   text-decoration: none;
-  font: #000;
+  color: #000;
+  font-style: oblique;
 }
+
+a:hover {
+  text-decoration: underline;
+  }
 
 header{
   margin-top: 10px;
@@ -42,14 +47,14 @@ header{
   width: 500px;
 }
 
-.submit-btn{
+/* .submit-btn{
   height: 55px;
   width: 100px;
   background-color: #61C359;
   font-size: 15px;
-}
+} */
 
-.question-btn{
+/* .question-btn{
   height: 40px;
   width: 110px;
   background-color: #FBAA00;
@@ -58,12 +63,33 @@ header{
   margin-left: 150px;
   padding-top: 15px;
   padding-left: 30px;
+} */
+
+.question-btn{
+  height: 40px;
+  width: 110px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+  background: #FBAA00;
+  transition: .4s;
+  font-size: 15px; 
+  font-display: center;
+  margin-left: 150px;
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
+.question-btn:hover {
+  background: #FEEABC;
 }
 
 .navbar{
   height: 20px;
   width: 930px;
-  background-color:#767676;
+  background-color:#FBAA00;
   margin: 0 auto;
   padding: 15px;
 }
@@ -80,6 +106,7 @@ header{
   float: left;
   padding: 10px;
   margin-right: 10px;
+  overflow: scroll;
 }
 
 .right-content{
@@ -120,7 +147,72 @@ td {
 
 /* 新規投稿のSCC */
 .content-form{
-  height:200px;
+  height:100px;
   width: 600px;
 }
 
+/* font */
+h1 {
+  position: relative;
+  line-height: 1.4;
+  padding:0.25em 1em;
+  display: inline-block;
+  top:0;
+}
+
+h1:before, h1:after { 
+  position: absolute;
+  top: 0;
+  content:'';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+h1:before {
+  border-left: solid 1px black;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  left: 0;
+}
+h1:after {
+  content: '';
+  border-top: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+  right: 0;
+}
+
+/* searchボタン */
+.submit-btn{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+  background: #00bcd4;
+  transition: .4s;
+  font-size: 20px;
+  padding : 15px;
+}
+
+.submit-btn:hover {
+  background: #1ec7bb;
+}
+
+/* 投稿ボタン */
+
+.question-submit{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+  background: #FBAA00;
+  transition: .4s;
+  font-size: 15px;
+  padding : 15px;
+}
+
+.question-submit:hover {
+  background: #FEEABC;
+}
