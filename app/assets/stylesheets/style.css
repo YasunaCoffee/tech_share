@@ -1,0 +1,112 @@
+body {
+  background-color: #FEEABC;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+  font-family: 'Andale Mono','メイリオ', Meiryo,'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+
+header{
+  margin-top: 10px;
+}
+
+.heading{
+  width: 960px;
+  margin: 0 auto;
+}
+
+.heading-sentence{
+  font-size: 18px;
+}
+
+.searchbar{
+  height: 30px;
+  width: 930px;
+  background-color:#FBAA00;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.search-input{
+  height: 50px;
+  width: 800px;
+}
+
+.submit-btn{
+  height: 55px;
+  width: 100px;
+  background-color: #61C359;
+  font-size: 15px;
+}
+
+.navbar{
+  height: 20px;
+  width: 930px;
+  background-color:#FBAA00;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.contents{
+  width: 960px;
+  margin: 10px auto;
+}
+
+.left-content{
+  height: 400px;
+  width: 640px;
+  background-color: #fff;
+  float: left;
+  padding: 10px;
+
+}
+
+.right-content{
+  height: 400px;
+  width: 280px;
+  background-color: #767676;
+  float: left;
+  padding: 10px;
+}
+
+footer{
+  text-align: center;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li{
+  float: left;
+  padding-right: 10px;
+}
+
+td {
+  margin: 0;
+  padding-left: 10px;
+  line-height: 30px;
+}
+
+.stylist-image{
+  height: 100px;
+  width: 100px;
+}
+
+.stylist-name{
+  font-size: 16px;
+  text-align: center;
+}
+
