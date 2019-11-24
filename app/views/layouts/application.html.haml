@@ -18,8 +18,12 @@
         %form
           %input{placeholder: "Type a keyword...", type: "text",class: "search-input"}/
           %input{type: "submit", value:"SEARCH", class: "submit-btn"}/
+        =link_to new_question_path do 
+          .question-btn 今すぐ質問
       .navbar
         %ul
-          %li カリキュラム
-          %li 質問
+          %li カリキュラムから探す
+          %li 質問から探す
     = yield
+  %footer
+  %small Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.

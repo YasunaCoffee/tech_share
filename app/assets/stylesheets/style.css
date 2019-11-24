@@ -29,16 +29,17 @@ header{
 }
 
 .searchbar{
-  height: 30px;
+  height: 60px;
   width: 930px;
-  background-color:#FBAA00;
+  background-color:#767676;
   margin: 0 auto;
   padding: 15px;
+  display: flex;
 }
 
 .search-input{
   height: 50px;
-  width: 800px;
+  width: 500px;
 }
 
 .submit-btn{
@@ -48,10 +49,21 @@ header{
   font-size: 15px;
 }
 
+.question-btn{
+  height: 40px;
+  width: 110px;
+  background-color: #FBAA00;
+  font-size: 15px; 
+  font-display: center;
+  margin-left: 150px;
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
 .navbar{
   height: 20px;
   width: 930px;
-  background-color:#FBAA00;
+  background-color:#767676;
   margin: 0 auto;
   padding: 15px;
 }
@@ -62,18 +74,18 @@ header{
 }
 
 .left-content{
-  height: 400px;
-  width: 640px;
+  height: 500px;
+  width: 630px;
   background-color: #fff;
   float: left;
   padding: 10px;
-
+  margin-right: 10px;
 }
 
 .right-content{
-  height: 400px;
+  height: 500px;
   width: 280px;
-  background-color: #767676;
+  background-color: #fff;
   float: left;
   padding: 10px;
 }
@@ -105,13 +117,10 @@ td {
   line-height: 30px;
 }
 
-.stylist-image{
-  height: 100px;
-  width: 100px;
-}
 
-.stylist-name{
-  font-size: 16px;
-  text-align: center;
+/* 新規投稿のSCC */
+.content-form{
+  height:200px;
+  width: 600px;
 }
 
