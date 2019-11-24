@@ -1,10 +1,9 @@
 .contents.clearfix
   .left-content
-    %h2 What's App?
-    %h3 応用カリキュラム
-    =link_to question_path(@question) do
+    %h2
       =@question.content
-    %h3 最終課題
+    %p おなまえ
+    %p 2020/1/1
   .right-content
     %h3 おすすめQ&A
     %p
@@ -13,3 +12,4 @@
         ⇒詳しくはこちら
 %footer
   %small Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.
+  
