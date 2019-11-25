@@ -146,3 +146,34 @@ h1:after {
   margin: 0; 
   padding: 0;
 }
+
+.question_title{
+  font-size: 20px;
+}
+
+.question_box{
+  display: flex;
+  .name{
+    font-size: 10px;
+    margin-right: 5px;
+  }
+  .date{
+    font-size: 10px;
+  }
+}
+
+.answer{
+  margin-top: 30px;
+}
+
+.answer_box{
+  display: flex;
+  .name{
+    font-size: 10px;
+    margin-right: 5px;
+  }
+  .date{
+    font-size: 10px;
+  }
+}
+
