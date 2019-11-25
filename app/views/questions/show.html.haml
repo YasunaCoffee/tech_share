@@ -1,0 +1,25 @@
+.contents.clearfix
+  .left-content
+    %h2 タイトル
+    =@question.content
+    %p 質問者
+    %p 2020/1/1
+    %h3 質問内容
+    =@question.content
+    %p 回答者
+    %p 2020/1/1
+    %br
+    %h2 回答する
+    %form
+      %input{placeholder: "", type: "textarea",class: "content-form"}/
+      %br
+      %br
+      %input{type: "submit", value:"答える", class: "question-submit"}/
+  .right-content
+    %h3 おすすめQ&A
+    %p
+      ミウラのコーディングブログ
+      =link_to "https://coffeecups.blue" do 
+        ⇒詳しくはこちら
+
+  
