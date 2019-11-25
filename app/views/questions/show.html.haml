@@ -1,23 +1,20 @@
 .contents.clearfix
   .left-content
-    %h2
-      =@question.content
+    %h2 タイトル
+    =@question.content
     %p 質問者
     %p 2020/1/1
-    %h3 
-    %p　回答者
+    %h3 質問内容
+    =@question.content
+    %p 回答者
     %p 2020/1/1
+    %br
+    %h2 回答する
     %form
-      %input{placeholder: "質問内容", type: "text",class: "content-form"}/
-      %br
-      %h3 アプリ
-      %input{placeholder: "chat-space", type: "checkbox",class: ""}chat-space
-      %input{placeholder: "最終課題", type: "checkbox",class: ""}最終課題
-      %h3 実装段階
-      %input{placeholder: "最終課題", type: "checkbox",class: ""}非同期
+      %input{placeholder: "", type: "textarea",class: "content-form"}/
       %br
       %br
-      %input{type: "submit", value:"投稿する", class: "question-submit"}/
+      %input{type: "submit", value:"答える", class: "question-submit"}/
   .right-content
     %h3 おすすめQ&A
     %p
