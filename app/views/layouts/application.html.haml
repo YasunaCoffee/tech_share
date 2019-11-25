@@ -14,13 +14,13 @@
         =link_to root_path do
           %h1.title TECH::SHARE
         %p.heading-sentence Knowledge for Mentors
-      .searchbar
-        %form
-          %input{placeholder: "Type a keyword...", type: "text",class: "search-input"}/
-          %input{type: "submit", value:"SEARCH", class: "submit-btn"}/
+      .bg-primary
+        %form.searchbar_form
+          %input{placeholder: "Type a keyword...", type: "text",class: "form-control mr-sm-2"}/
+          %input{type: "submit", value:"SEARCH", class: "btn btn-outline-warning"}/
         =link_to new_question_path do 
-          .question-btn 今すぐ質問
-      .navbar
+          .btn.btn-danger 今すぐ質問
+      .bg-dark.navbar-nav
         %ul
           %li カリキュラムから探す
           %li 質問から探す
