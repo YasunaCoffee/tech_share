@@ -1,13 +1,20 @@
 .contents.clearfix
   .left-content
     %h2 タイトル
-    =@question.content
-    %p 質問者
-    %p 2020/1/1
-    %h3 質問内容
-    =@question.content
-    %p 回答者
-    %p 2020/1/1
+    =@question.title
+    .question
+      .question_box
+        .name 質問者
+        .date 2020/1/1
+      %h3 質問内容
+      .question_content
+        =@question.content
+    .answer
+      .answer_box
+        .name 回答者
+        .date 2020/1/1
+      .answer_content
+        こたえだよ
     %br
     %h2 回答する
     %form
