@@ -9,7 +9,7 @@
           %h4.card-title
             =@question.title
           %p.card-text 
-            =@question.content
+            = markdown(@question.content).html_safe
     .answer
       .card.bg-light.mb-3{:style => "max-width: 50rem;"}
         .card-header.answer_box
