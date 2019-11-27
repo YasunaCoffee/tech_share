@@ -1,20 +1,12 @@
 .contents.clearfix
   .left-content
-    %h2 質問する
-    .question_form
-      %form
-        %input{placeholder: "質問内容", type: "text",class: "content-form"}/
-        %br
-        %h3 アプリ
-        %input{placeholder: "chat-space", type: "checkbox",class: ""}chat-space
-        %input{placeholder: "最終課題", type: "checkbox",class: ""}最終課題
-        %h3 実装段階
-        %input{placeholder: "最終課題", type: "checkbox",class: ""}非同期
-        %br
-        %input{type: "submit", value:"投稿する", class: "question-submit"}/
+    %h4 質問する
+    .form-group
+      %label{:for => "exampleTextarea"} タイトル
+      %textarea#exampleTextarea.form-control{:rows => "1"}
+      %label{:for => "exampleTextarea"} 質問内容
+      %textarea#exampleTextarea.form-control{:rows => "10"}
+      %br
+      %input{type: "submit", value:"投稿する", class: "btn btn-warning"}/
   .right-content
-    %h3 おすすめQ&A
-    %p
-      ミウラのコーディングブログ
-      =link_to "https://coffeecups.blue" do 
-        ⇒詳しくはこちら
+    =render "sidebar"

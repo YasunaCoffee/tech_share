@@ -1,28 +1,18 @@
 .contents.clearfix
   .left-content
-    %h2 What's New?
-    %h3.box1 応用カリキュラム
-    =link_to question_path(@question) do
-      =@question.title
-    %h3.box1 最終課題
-      
-  .right-content
-    %h3 おすすめURL
-    =link_to "https://hackmd.io/pvbqfkMxRpSxDKY7ZkPmcg" do 
-      Catalinaトラブル対応まとめ
-    %br
-    =link_to "https://hackmd.io/@gdHkuuFdTwqySPtsm8mzkA/BJJpg8vHH#/" do 
-      メルカリデータベース設計
-    %br
-    =link_to "https://hackmd.io/NtTvpR9ZQAuOmOYieTCblA" do 
-      デプロイ・環境エラーまとめ
-    %br
-    =link_to "https://chat-space-sample.herokuapp.com/users/sign_in" do 
-      Chat-Spaceサンプルページ
-    %br
-    =link_to "https://ryucoding.com" do 
-      RyuCoding
-    %br
-    =link_to "https://coffeecups.blue" do 
-      A Cup Of Coding
+    %h4 What's New?
+    .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+      .card-header 応用カリキュラム
+      .card-body
+        %h4.card-title
+        =link_to question_path(@question) do
+          =@question.title
+    .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+      .card-header 最終課題
+      .card-body
+        %h4.card-title
+        =link_to question_path(@question) do
+          =@question.title
 
+  .right-content
+    =render "sidebar"

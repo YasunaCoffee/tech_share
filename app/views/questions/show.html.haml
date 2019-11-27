@@ -1,33 +1,30 @@
 .contents.clearfix
   .left-content
     .question
-      タイトル
-      .question_title
-        =@question.title
-      .question_box
-        .name 質問者
-        .date 2020/1/1
-      %h3 質問内容
-      .question_content
-        =@question.content
+      .card.border-light.mb-3{:style => "max-width: 50rem;"}
+        .card-header.question_box
+          .name 質問者
+          .date 2020/1/1
+        .card-body
+          %h4.card-title
+            =@question.title
+          %p.card-text 
+            = markdown(@question.content).html_safe
     .answer
-      .answer_content
-        こたえだよ
-      .answer_box
-        .name 回答者
-        .date 2020/1/1
+      .card.bg-light.mb-3{:style => "max-width: 50rem;"}
+        .card-header.answer_box
+          .name 回答者
+          .date 2020/1/1
+        .card-body
+          %h4.card-title Success card title
+          %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
     %br
-    %h2 回答する
-    %form
-      %input{placeholder: "", type: "textarea",class: "content-form"}/
-      %br
-      %br
-      %input{type: "submit", value:"答える", class: "question-submit"}/
+    %h4 回答する
+    -# %label{:for => "exampleTextarea"} 
+    %textarea#exampleTextarea.form-control{:rows => "10"}
+    %br
+    %input{type: "submit", value:"回答する", class: "btn btn-warning"}/
   .right-content
-    %h3 おすすめQ&A
-    %p
-      ミウラのコーディングブログ
-      =link_to "https://coffeecups.blue" do 
-        ⇒詳しくはこちら
+    =render "sidebar"
 
   
