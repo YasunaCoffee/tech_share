@@ -50,7 +50,7 @@ td {
 }
 
 /* font */
-h1 {
+h2 {
   position: relative;
   line-height: 1.4;
   padding:0.25em 1em;
@@ -58,7 +58,7 @@ h1 {
   top:0;
 }
 
-h1:before, h1:after { 
+h2:before, h2:after { 
   position: absolute;
   top: 0;
   content:'';
@@ -66,13 +66,13 @@ h1:before, h1:after {
   height: 100%;
   display: inline-block;
 }
-h1:before {
+h2:before {
   border-left: solid 1px black;
   border-top: solid 1px black;
   border-bottom: solid 1px black;
   left: 0;
 }
-h1:after {
+h2:after {
   content: '';
   border-top: solid 1px black;
   border-right: solid 1px black;
