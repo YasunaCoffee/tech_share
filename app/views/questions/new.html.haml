@@ -1,12 +1,24 @@
 .contents.clearfix
   .left-content
-    %h4 質問する
-    .form-group
-      %label{:for => "exampleTextarea"} タイトル
-      %textarea#exampleTextarea.form-control{:rows => "1"}
-      %label{:for => "exampleTextarea"} 質問内容
-      %textarea#exampleTextarea.form-control{:rows => "10"}
-      %br
-      %input{type: "submit", value:"投稿する", class: "btn btn-warning"}/
+    %h4
+      質問
+      = form_with model: @question, local: true do |f|
+        .form-group
+          = f.label "カリキュラム", for: "curriculum"
+          = f.select :curriculum, Question.curriculums_i18n.invert, id: "curriculum"
+        %br
+          = f.label "タイトル", for: "exampletitle"
+          = f.text_field :title, id: "exampletitle", class: "form-control"
+        %br
+          = f.label "質問内容", for: "examplecontent"
+          = f.text_area :content, id: "examplecontent", class: "form-control"
+
+          -# %label{:for => "exampleTextarea"} タイトル
+          -# %textarea#exampleTextarea.form-control{:rows => "1"}
+          -# %label{:for => "exampleTextarea"} 質問内容
+          -# %textarea#exampleTextarea.form-control{:rows => "10"}
+        %br
+          = f.submit "投稿する", class: "btn btn-warning"
+          -# %input{type: "submit", value:"投稿する", class: "btn btn-warning"}/
   .right-content
     =render "sidebar"
