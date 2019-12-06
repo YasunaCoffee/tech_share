@@ -1,18 +1,21 @@
+
 .contents.clearfix
   .left-content
     %h4 What's New?
-    .card.border-primary.mb-3{:style => "max-width: 50rem;"}
-      .card-header 応用カリキュラム
-      .card-body
-        %h4.card-title
-        =link_to question_path(@question) do
-          =@question.title
-    .card.border-primary.mb-3{:style => "max-width: 50rem;"}
-      .card-header 最終課題
-      .card-body
-        %h4.card-title
-        =link_to question_path(@question) do
-          =@question.title
+    - @questions.each do |question|
+      .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+        .card-header
+          = question.curriculum_i18n
+        .card-body
+          %h4.card-title
+            = link_to question_path(question) do
+              = question.title
+    -# .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+    -#   .card-header 最終課題
+    -#   .card-body
+    -#     %h4.card-title
+    -#     = link_to question_path(question) do
+    -#       = question.title
 
   .right-content
     =render "sidebar"
