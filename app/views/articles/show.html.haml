@@ -1,0 +1,29 @@
+.contents.clearfix
+  .left-content
+    .question
+      .card.border-light.mb-3{:style => "max-width: 50rem;"}
+        .card-header.question_box
+          .name 記事投稿者
+          .date
+            = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+        .card-body
+          %h4.card-title
+            = @article.title
+          %p.card-text 
+            = markdown(@article.content).html_safe
+    .answer
+      .card.bg-light.mb-3{:style => "max-width: 50rem;"}
+        .card-header.answer_box
+          .name 回答者
+          .date 2020/1/1
+        .card-body
+          %h4.card-title Success card title
+          %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+  -#   %br
+  -#   %h4 回答する
+  -#   -# %label{:for => "exampleTextarea"} 
+  -#   %textarea#exampleTextarea.form-control{:rows => "10"}
+  -#   %br
+  -#   %input{type: "submit", value:"回答する", class: "btn btn-warning"}/
+  -# .right-content
+  =render "questions/sidebar"

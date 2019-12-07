@@ -1,0 +1,19 @@
+.contents.clearfix
+  .left-content
+    %h4
+      記事投稿
+      = form_with model: @article, local: true do |f|
+        .form-group
+          %br
+            = f.label "タグ", for: "tag"
+            = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例　Ruby, Rails, Mysql..."
+          %br
+            = f.label "タイトル", for: "exampletitle"
+            = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+          %br
+            = f.label "内容", for: "examplecontent"
+            = f.text_area :content, id: "examplecontent", class: "form-control", rows: "10"
+        %br
+          = f.submit "投稿する", class: "btn btn-warning"
+  .right-content
+    =render "questions/sidebar"
