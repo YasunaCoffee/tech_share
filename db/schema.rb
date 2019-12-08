@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_065438) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "curriculum", null: false
     t.string "title"
   end
 

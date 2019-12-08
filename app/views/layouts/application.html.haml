@@ -3,7 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "UTF-8"}/
-    %link{:href => "style.css", :rel => "stylesheet"}/
+    -# TODO: ターミナル上でエラーが出ているので、下記必要の有無を聞く
+    -# %link{:href => "style.css", :rel => "stylesheet"}/
     %title TECH::SHARE
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -16,9 +17,9 @@
         %p.lead Knowledge for Mentors
         %a.btn.btn-primary.btn-lg{:href => new_question_path, :role => "button"} 今すぐ質問
         %hr.my-4/
-        %form.searchbar_form
-          %input{placeholder: "Type a keyword...", type: "text",class: "form-control mr-sm-2"}/
-          %input{type: "submit", value:"SEARCH", class: "btn btn-warning"}/
+        = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
+          = f.text_field :search, class: "form-control mr-sm-2", placeholder: "Type a keyword..."
+          = f.submit 'SEARCH', class: "btn btn-warning"
       .navbar-expand-lg.navbar-dark.bg-primary
         .navbar-brand
         %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
