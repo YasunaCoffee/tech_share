@@ -1,45 +1,25 @@
-// Flatly 4.3.1
+// Solar 4.3.1
 // Bootswatch
 
 
 // Variables ===================================================================
 
-$web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic" !default;
+$web-font-path: "https://fonts.googleapis.com/css?family=Source+Sans+Pro" !default;
 @import url($web-font-path);
 
-// Navbar =======================================================================
-
-.bg-primary {
-  display: flex;
-  height: 40px;
-  .navbar-nav .active > .nav-link {
-    color: $success !important;
-  }
-}
-
-.bg-dark {
-  background-color: $success !important;
-  &.navbar-dark .navbar-nav {
-    .nav-link:focus,
-    .nav-link:hover,
-    .active > .nav-link {
-      color: $primary !important;
-    }
-  }
-}
-
-.jumbotron{
-  margin: 0;
-}
+// Navbar ======================================================================
 
 // Buttons =====================================================================
 
 .btn {
-  &-secondary,
-  &-secondary:hover,
-  &-warning,
-  &-warning:hover {
-    color: #fff;
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
   }
 }
 
@@ -51,6 +31,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
 
   &-primary,
   &-secondary,
+  &-dark,
   &-success,
   &-info,
   &-warning,
@@ -173,43 +154,32 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
 
 // Forms =======================================================================
 
+.custom-control-input:checked ~ .custom-control-label::before {
+  background: $primary;
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border-color: $primary;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+  background: $primary;
+  border-color: $primary;
+}
+
+.custom-switch {
+  .custom-control-label::after {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::after {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+}
+
 // Navs ========================================================================
 
-.nav-tabs {
-  .nav-link.active,
-  .nav-link.active:focus,
-  .nav-link.active:hover,
-  .nav-item.open .nav-link,
-  .nav-item.open .nav-link:focus,
-  .nav-item.open .nav-link:hover {
-    color: $primary;
-  }
-}
-
-.pagination {
-  a:hover {
-    text-decoration: none;
-  }
-}
-
 // Indicators ==================================================================
-
-.close {
-  text-decoration: none;
-  opacity: 0.4;
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-}
-
-.badge {
-  &-secondary,
-  &-warning {
-    color: #fff;
-  }
-}
 
 .alert {
   border: none;
@@ -224,7 +194,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
       } @else {
         background-color: $value;
       }
@@ -233,9 +203,9 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
 
   &-light {
     &,
-    & a,
+    & a:not(.btn),
     & .alert-link {
-      color: $body-color;
+      color: $body-bg;
     }
   }
 }
@@ -243,11 +213,3 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
 // Progress bars ===============================================================
 
 // Containers ==================================================================
-.modal .close{
-  color: $black;
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):focus {
-    color: $black;
-  }
-}

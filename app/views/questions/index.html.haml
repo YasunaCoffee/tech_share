@@ -1,7 +1,9 @@
 .contents.container-fluid
   .main.row
     .col-md-9
-      %h4 What's New?
+      =render "template/sidebar"
+    .col-md-3
+      %h4 答え受付中
       - @questions.each do |question|
         .card.border-primary.mb-3{:style => "max-width: 50rem;"}
           .card-header
@@ -10,5 +12,5 @@
             %h4.card-title
               = link_to question_path(question) do
                 = question.title
-    .col-md-3
-      =render "template/sidebar"
+      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
+

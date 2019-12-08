@@ -9,32 +9,37 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      .jumbotron
-        =link_to root_path do
-          %h2.display-5 TECH::SHARE
-        %p.lead Knowledge for Mentors
-        = link_to "今すぐ質問", new_question_path, class: " btn btn-primary btn-lg"
-        = link_to "記事投稿", new_article_path, class: "btn btn-primary btn-lg"
-        = link_to "記事一覧", articles_path, class: "btn btn-primary btn-lg"
-        %hr.my-4/
-        %form.searchbar_form
-          %input{placeholder: "Type a keyword...", type: "text",class: "form-control mr-sm-2"}/
-          %input{type: "submit", value:"SEARCH", class: "btn btn-warning"}/
-      .navbar-expand-lg.navbar-dark.bg-primary
-        .navbar-brand
-        %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
-          %span.navbar-toggler-icon
-        #navbarColor01.collapse.navbar-collapse
-          %ul.navbar-nav.mr-auto
-            %li.nav-item.active
-              %a.nav-link{:href => root_path}
-                Home
-                %span.sr-only (current)
-            %li.nav-item
-              %a.nav-link{:href => "#"} カリキュラムから探す
-            %li.nav-item
-              %a.nav-link{:href => "#"} 質問から探す
+    %nav.navbar.navbar-expand-md.navbar-dark.bg-primary.sticky-top
+      .navbar-brand
+        TECH::SHARE
+        %small
+          knowledge for mentors
+      %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarColor01.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li.nav-item.active
+            %a.nav-link{:href => root_path}
+              HOME
+              %span.sr-only (current)
+          %li.nav-item
+            =link_to articles_path do 
+              .nav-link ナレッジを読む
+          %li.nav-item
+            =link_to new_article_path do 
+              .nav-link ナレッジを投稿
+          %li.nav-item
+            =link_to questions_path do 
+              .nav-link 質問を見る
+          %li.nav-item
+            =link_to new_question_path do 
+              .nav-link 質問を投稿
+    .jumbotron
+      .container
+        %form.searchbar_form.row
+          %input.col-md-8.form-control{placeholder: "Type a keyword...", type: "text"}/
+          %input.col-md-2.btn.btn.btn-warning{type: "submit", value:"SEARCH"}/
+
     = yield
   %footer
   %small Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.

@@ -1,7 +1,7 @@
-.contents.clearfix
+.container
   .left-content
     .question
-      .card.border-light.mb-3{:style => "max-width: 50rem;"}
+      .card.border-light.mb-3
         .card-header.question_box
           .name 記事投稿者
           .date
@@ -12,7 +12,7 @@
           %p.card-text 
             = markdown(@article.content).html_safe
     .answer
-      .card.bg-light.mb-3{:style => "max-width: 50rem;"}
+      .card.bg-light.mb-3
         .card-header.answer_box
           .name 回答者
           .date 2020/1/1
@@ -26,4 +26,3 @@
   -#   %br
   -#   %input{type: "submit", value:"回答する", class: "btn btn-warning"}/
   -# .right-content
-  =render "template/sidebar"
