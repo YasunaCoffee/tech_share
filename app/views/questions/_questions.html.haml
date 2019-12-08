@@ -1,7 +1,6 @@
 .contents.clearfix
   .left-content
     %h4 What's New?
-    - console
     - @questions.each do |question|
       .card.border-primary.mb-3{:style => "max-width: 50rem;"}
         .card-header
