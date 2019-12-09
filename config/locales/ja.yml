@@ -1,0 +1,7 @@
+ja:
+  enums:
+    question:
+      curriculum:
+        Basiccurriculum: 基礎カリキュラム
+        Applicationcurriculum: 応用カリキュラム
+        Finalsubject: 最終課題
