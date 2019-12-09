@@ -15,7 +15,9 @@
         =link_to root_path do
           %h2.display-5 TECH::SHARE
         %p.lead Knowledge for Mentors
-        %a.btn.btn-primary.btn-lg{:href => new_question_path, :role => "button"} 今すぐ質問
+        = link_to "今すぐ質問", new_question_path, class: " btn btn-primary btn-lg"
+        = link_to "記事投稿", new_article_path, class: "btn btn-primary btn-lg"
+        = link_to "記事一覧", articles_path, class: "btn btn-primary btn-lg"
         %hr.my-4/
         = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
           = f.text_field :search, class: "form-control mr-sm-2", placeholder: "Type a keyword..."

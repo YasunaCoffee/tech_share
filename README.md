@@ -16,6 +16,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
+|title|string|null: false|
+|curriculum|integer|null: false|
 
 ### Association
 
@@ -60,5 +62,15 @@ belongs_to :user
 ### Association
 - belongs_to :answer
 - belongs_to :user
+
+## Articlesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|content|text|null: fasle|
+|tag|string|----|
+
+### Association
+
 
 
