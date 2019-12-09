@@ -38,9 +38,9 @@
               .nav-link 質問を投稿
     .jumbotron
       .container
-        %form.searchbar_form.row
-          %input.col-md-8.form-control{placeholder: "Type a keyword...", type: "text"}/
-          %input.col-md-2.btn.btn.btn-warning{type: "submit", value:"SEARCH"}/
+        = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
+          = f.text_field :search, class: "form-control mr-sm-2", placeholder: "Type a keyword..."
+          = f.submit 'SEARCH', class: "btn btn-warning"
     = yield
   %footer
   %small Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.
