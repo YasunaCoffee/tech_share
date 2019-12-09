@@ -1,16 +1,1 @@
-.contents.container-fluid
-  .main.row
-    .col-md-9
-      =render "template/sidebar"
-    .col-md-3
-      %h4 答え受付中
-      - @questions.each do |question|
-        .card.border-dark.mb-3{:style => "max-width: 50rem;"}
-          .card-header
-            -# = question.curriculum_i18n
-          .card-body
-            %h4.card-title
-              = link_to question_path(question) do
-                = question.title
-      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
-= render "questions"
+= render "template/questions"
