@@ -6,4 +6,5 @@ class Question < ApplicationRecord
     Applicationcurriculum: 1,
     Finalsubject: 2
   }
+  belongs_to :curriculum
 end

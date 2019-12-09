@@ -1,8 +1,8 @@
-.contents.clearfix
+.container
   .left-content
-    %h4 What's New?
+    %h5 新着ナレッジ
     - @articles.each do |article|
-      .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+      .card.border-dark.mb-3
         .card-header
           = article.tag
         .card-body
