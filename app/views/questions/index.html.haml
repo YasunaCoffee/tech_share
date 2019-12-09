@@ -1,14 +1,1 @@
-
-.contents.clearfix
-  .left-content
-    %h4 What's New?
-    - @questions.each do |question|
-      .card.border-primary.mb-3{:style => "max-width: 50rem;"}
-        .card-header
-          = question.curriculum_i18n
-        .card-body
-          %h4.card-title
-            = link_to question_path(question) do
-              = question.title
-  .right-content
-    =render "template/sidebar"
+= render "questions"

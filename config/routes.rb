@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'questions#index'
-  resources :questions
+  resources :questions do
+    collection do
+      post "search"
+    end
+  end
   resources :articles
 end
