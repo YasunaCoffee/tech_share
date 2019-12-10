@@ -1,0 +1,31 @@
+%nav.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top
+  .navbar-brand
+    TECH::SHARE
+    %small
+      knowledge for mentors
+  %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarColor01.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => root_path}
+          HOME
+          %span.sr-only (current)
+      %li.nav-item
+        =link_to articles_path do 
+          .nav-link ナレッジを読む
+      %li.nav-item
+        =link_to new_article_path do 
+          .nav-link ナレッジを投稿
+      %li.nav-item
+        =link_to questions_path do 
+          .nav-link 質問を見る
+      %li.nav-item
+        =link_to new_question_path do 
+          .nav-link 質問を投稿
+.jumbotron
+  .container
+    = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
+      = f.text_field :search, class: "form-control mr-sm-2", placeholder: "Type a keyword..."
+      = f.submit 'SEARCH', class: "btn btn-warning"
+      %i.fas.fa-search
