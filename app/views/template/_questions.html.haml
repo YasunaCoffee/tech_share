@@ -12,4 +12,5 @@
             %h4.card-title
               = link_to question_path(question) do
                 = question.title
-      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
+      = link_to new_question_path do 
+        %i.far.fa-hand-point-right.btn.btn-danger.btn-md 今すぐ質問
