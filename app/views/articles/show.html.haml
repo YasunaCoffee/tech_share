@@ -2,14 +2,14 @@
   .left-content
     .question
       .card.border-light.mb-3
-        .card-header.question_box
+        .card-header.question_box.bg-dark.text-light 
           .name 記事投稿者
           .date
             = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-        .card-body
-          %h4.card-title
+          .h2.card-title
             = @article.title
-          %p.card-text 
+        .card-body.bg-dark.text-light 
+          %p.card-text
             = markdown(@article.content).html_safe
     .answer
       .card.bg-light.mb-3
