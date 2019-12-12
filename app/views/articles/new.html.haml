@@ -11,5 +11,5 @@
           = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
         %br
           = f.label "内容", for: "examplecontent"
-          = f.text_area :content, id: "examplecontent", class: "form-control", rows: "10"
-        = f.submit "ナレッジを投稿する", class: "btn btn-danger mt-2"
+          = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "10"
+        = f.submit "ナレッジを投稿する", class: "btn btn-warning btn-block mt-2"
