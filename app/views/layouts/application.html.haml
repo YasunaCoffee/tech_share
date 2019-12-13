@@ -3,44 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "UTF-8"}/
-    %link{href: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", rel: "stylesheet", integrity: "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh", crossorigin: "anonymous"}
-    %script{src: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", integrity: "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6", crossorigin: "anonymous"}
-    %script{src: "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js", integrity: "sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm", crossorigin: "anonymous"}
+    %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/6e2972b136.js"}
     %title TECH::SHARE
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top
-      .navbar-brand
-        TECH::SHARE
-        %small
-          knowledge for mentors
-      %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
-        %span.navbar-toggler-icon
-      #navbarColor01.collapse.navbar-collapse
-        %ul.navbar-nav.mr-auto
-          %li.nav-item.active
-            %a.nav-link{:href => root_path}
-              HOME
-              %span.sr-only (current)
-          %li.nav-item
-            =link_to articles_path do 
-              .nav-link ナレッジを読む
-          %li.nav-item
-            =link_to new_article_path do 
-              .nav-link ナレッジを投稿
-          %li.nav-item
-            =link_to questions_path do 
-              .nav-link 質問を見る
-          %li.nav-item
-            =link_to new_question_path do 
-              .nav-link 質問を投稿
-    .jumbotron
-      .container
-        = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
-          = f.text_field :search, class: "form-control mr-sm-2", placeholder: "Type a keyword..."
-          = f.submit 'SEARCH', class: "btn btn-warning"
+    =render "template/navbar"
     = yield
   %footer
   .text-center Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.
