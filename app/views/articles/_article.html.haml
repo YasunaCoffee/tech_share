@@ -1,0 +1,7 @@
+.card.border-dark.mb-3
+  .card-header
+    = article.tag
+  .card-body
+    %h4.card-title
+      = link_to article_path(article) do
+        = article.title
