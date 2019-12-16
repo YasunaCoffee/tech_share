@@ -1,8 +1,7 @@
 .contents.container-fluid
   .main.row
     .col-md-9
-      =render "template/sidebar"
-    .col-md-3
-      %h4 答え受付中
+      %h4.text-center 「(キーワード)」の検索結果
       =render @questions
-      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
+    .col-md-3
+      =render "template/sidebar"
