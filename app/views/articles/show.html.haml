@@ -1,6 +1,8 @@
-.container
-  .left-content
-    .question
+.container-fluid.p-4
+  .row
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
       .card.border-light.mb-3
         .card-header.question_box.bg-dark.text-light 
           .name 記事投稿者
@@ -8,21 +10,21 @@
             = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
           .h2.card-title
             = @article.title
-        .card-body.bg-dark.text-light 
+        .card-body.bg-dark.text-light.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
-    .answer
-      .card.bg-light.mb-3
-        .card-header.answer_box
-          .name 回答者
-          .date 2020/1/1
-        .card-body
-          %h4.card-title Success card title
-          %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-  -#   %br
-  -#   %h4 回答する
-  -#   -# %label{:for => "exampleTextarea"} 
-  -#   %textarea#exampleTextarea.form-control{:rows => "10"}
-  -#   %br
-  -#   %input{type: "submit", value:"回答する", class: "btn btn-warning"}/
-  -# .right-content
+      %ul.list-unstyled
+        %li.media.mb-4.bg-light.rounded
+          =image_tag "media",class: "mr-3 rounded-circle p-2"
+          .media-body
+            %h6 コメントした人
+            %p 投稿日時 2019-1-1
+            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
+        %li.media.mb-4.bg-light.rounded
+          =image_tag "media",class: "mr-3 rounded-circle p-2"
+          .media-body
+            %h6 コメントした人
+            %p 投稿日時 2019-1-1
+            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
+    .col-md-2
+      =render "template/sidebar"

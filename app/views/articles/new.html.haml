@@ -1,15 +1,13 @@
-.container
-  %h4
-    ナレッジを投稿する
-    = form_with model: @article, local: true do |f|
-      .form-group
-        %br
-          = f.label "タグ", for: "tag"
-          = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..."
-        %br
-          = f.label "タイトル", for: "exampletitle"
-          = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
-        %br
-          = f.label "内容", for: "examplecontent"
-          = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "10"
-        = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
+.container-fluid
+  = form_with model: @article, local: true do |f|
+    .form-group
+      %br
+        = f.label "タグ", for: "tag"
+        = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..."
+      %br
+        = f.label "タイトル", for: "exampletitle"
+        = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+      %br
+        = f.label "内容", for: "examplecontent"
+        = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "10"
+      = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
