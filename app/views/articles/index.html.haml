@@ -1,6 +1,7 @@
 .container
-  .left-content
-    %h5 新着ナレッジ
-    =render @articles
-  .right-content
-    =render "template/sidebar"
+  .row
+    .col-md-9
+      %h5 新着ナレッジ
+      =render @articles
+    .col-md-3
+      =render "template/sidebar"
