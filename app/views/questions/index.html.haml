@@ -1,1 +1,8 @@
-= render "template/questions"
+.contents.container-fluid
+  .row
+    .col-md-9
+      %h4 質問を見る
+      =render @questions
+      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
+    .col-md-3
+      =render "template/sidebar"

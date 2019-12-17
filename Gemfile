@@ -79,3 +79,4 @@ gem 'redcarpet'
 gem 'sassc', '2.1.0'
 
 gem 'enum_help'
+gem 'bootstrap'

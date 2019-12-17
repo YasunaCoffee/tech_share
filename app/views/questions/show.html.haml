@@ -1,8 +1,8 @@
 .container
   .left-content
     .question
-      .card.border-light.mb-3{:style => "max-width: 50rem;"}
-        .card-header.question_box
+      .card.border-light.mb-3
+        .card-header.question_box.bg-dark.text-light 
           .name 質問者
           .date
             - if @question.created_at == @question.updated_at
@@ -17,7 +17,7 @@
           %p.card-text
             = markdown(@question.content).html_safe
     .answer
-      .card.bg-light.mb-3{:style => "max-width: 50rem;"}
+      .card.bg-light.mb-3
         .card-header.answer_box
           .name 回答者
           .date 2020/1/1
@@ -29,6 +29,4 @@
     -# %label{:for => "exampleTextarea"} 
     %textarea#exampleTextarea.form-control{:rows => "10"}
     %br
-    %input{type: "submit", value:"回答する", class: "btn btn-warning"}/
-  .right-content
-    =render "template/sidebar"
+    %input{type: "submit", value:"回答する", class: "btn btn-warning btn-block"}/
