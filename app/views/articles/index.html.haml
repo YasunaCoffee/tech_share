@@ -1,7 +1,11 @@
-.container
+.container-fluid.p-4
   .row
-    .col-md-9
-      %h5 新着ナレッジ
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
+      .spinner-border.spinner-grow-sm.text-secondary{:role => "status"}
+        %span.sr-only Loading...
+      更新されたナレッジ
       =render @articles
-    .col-md-3
+    .col-md-2
       =render "template/sidebar"

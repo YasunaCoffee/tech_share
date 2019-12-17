@@ -5,3 +5,12 @@
 pre{
     color: #e83e8c !important;
 }
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color:#212529;
+}
+
+// .jumbotron{
+//     background-color: #343a40;
+//     border-radius: none !important;
+// }

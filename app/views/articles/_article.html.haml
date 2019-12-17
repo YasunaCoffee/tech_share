@@ -1,7 +1,7 @@
-.card.border-dark.mb-3
-  .card-header
+.alert.alert-dark{role: "alert"}
+  %h5.alert-heading
+    = link_to article_path(article),class: "alert-link" do
+      = article.title
+  %hr
     = article.tag
-  .card-body
-    %h5.card-title
-      = link_to article_path(article) do
-        = article.title
+
