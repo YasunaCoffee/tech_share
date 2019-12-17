@@ -1,8 +1,9 @@
-.contents.container-fluid
+.contents.container-fluid.p-4
   .row
-    .col-md-9
-      %h4 質問を見る
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
+      %h6 新しい質問
       =render @questions
-      = link_to "今すぐ質問", new_question_path, class: " btn btn-danger btn-md"
-    .col-md-3
+    .col-md-2
       =render "template/sidebar"
