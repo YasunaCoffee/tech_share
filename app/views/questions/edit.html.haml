@@ -1,0 +1,15 @@
+.container
+  %h4
+    新しい質問をする
+    = form_with model: @question, local: true do |f|
+      .form-group
+        %br
+          = f.label "カリキュラム", for: "curriculum"
+          = f.select :curriculum, Question.curriculums_i18n.invert, id: "curriculum"
+        %br
+          = f.label "タイトル", for: "exampletitle"
+          = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+        %br
+          = f.label "質問内容", for: "examplecontent"
+          = f.text_area :content, id: "examplecontent", class: "form-control", rows: "10"
+        = f.submit "質問を編集する", class: "btn btn-danger mt-2"

@@ -5,11 +5,16 @@
         .card-header.question_box.bg-dark.text-light 
           .name 質問者
           .date
-            = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-          .h2.card-title
+            - if @question.created_at == @question.updated_at
+              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+            - else
+              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+          .edit-btn
+            = link_to '編集する', edit_question_path(@question)
+        .card-body
+          %h4.card-title
             = @question.title
-        .card-body.bg-dark.text-light 
-          %p.card-text 
+          %p.card-text
             = markdown(@question.content).html_safe
     .answer
       .card.bg-light.mb-3
