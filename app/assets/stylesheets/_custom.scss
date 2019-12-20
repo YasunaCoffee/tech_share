@@ -2,6 +2,30 @@
     font-family: FontAwesome;
 }
 
-pre{
-    color: #e83e8c !important;
+pre,code{
+    color: #9CDCFE !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color:#212529;
+}
+
+a{
+    color: #C28972;
+}
+
+.bg-black{
+  background-color:  #1D1D1D;
+}
+
+.bg-darkgray{
+    background-color: #2D2D2D;
+}
+
+.bg-pink{
+    background-color: #F8D7DA;
+}
+
+.fa,.fas{
+    line-height: 1.5 !important;
 }

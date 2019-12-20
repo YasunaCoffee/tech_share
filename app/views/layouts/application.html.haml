@@ -10,6 +10,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     =render "template/navbar"
+    = render "template/header"
     = yield
   %footer
-  .text-center Copyright(C) TECH::SHARE ALL RIGHTS RESERVED.
+    =render "template/footer"
