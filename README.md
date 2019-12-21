@@ -29,48 +29,55 @@ belongs_to :user
 
 |Column|Type|Options|
 |------|----|-------|
-|theory|string|null: false|
-|action|string|null: false|
-|tip|string|null: false|
+|content|text|null: false|
 |question|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :questions
 - belongs_to :user
-- has_many :comments
-
-## curriculumsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|app|string|null: false|
-|phase|string|null :false|
-|url|string|null :false|
-
-### Association
-- has_many :questions
 
 ## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |comment|string|null :false|
-|answer|references|null: false, foreign_key: true|
+|article|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
-
 ### Association
-- belongs_to :answer
+- belongs_to :article
 - belongs_to :user
 
 ## Articlesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
+|app|string|null:false|
+|curriculum|string|null:false|
 |content|text|null: fasle|
-|tag|string|----|
 
 ### Association
+has_many: tags,through: :article_tags
+belongs_to: user
 
+## Article_tagsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|tag|references|null: false,foreign_key: true|
+|article|references|null: false,foreign_key: true|
+
+### Association
+- belongs_to: article
+- belongs_to: tag
+
+## tagsテーブル(プログラミング言語など)
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many: articles, through: :article_tags
 
 
