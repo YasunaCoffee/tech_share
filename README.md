@@ -57,8 +57,8 @@ belongs_to :user
 |content|text|null: fasle|
 
 ### Association
-has_many: tags,through: :article_tags
-belongs_to: user
+- has_many: tags,through: :article_tags
+- belongs_to: user
 
 ## Article_tagsテーブル
 
