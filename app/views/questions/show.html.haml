@@ -1,27 +1,31 @@
-.container
-  .left-content
-    .question
-      .card.border-light.mb-3
-        .card-header.question_box.bg-dark.text-light 
+.container-fluid.p-4.bg-dark
+  .row
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
+      .card.border-danger.mb-3
+        .card-header.question_box.bg-danger
           .name 質問者
           .date
-            = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-          .h2.card-title
+            - if @question.created_at == @question.updated_at
+              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+            - else
+              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+          .edit-btn
+            = link_to '編集する', edit_question_path(@question)
+        .card-body.bg-black.text-light.rounded-bottom
+          %h4.card-title
+            .fas.fa-question-circle
             = @question.title
-        .card-body.bg-dark.text-light 
-          %p.card-text 
+          %p.card-text
             = markdown(@question.content).html_safe
-    .answer
-      .card.bg-light.mb-3
-        .card-header.answer_box
+      .card.border-warning.mb-3
+        .card-header.bg-warning
           .name 回答者
           .date 2020/1/1
-        .card-body
-          %h4.card-title Success card title
+        .card-body.bg-black.text-light
+          %h4.card-title 解決策を教えます
           %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-    %br
-    %h4 回答する
-    -# %label{:for => "exampleTextarea"} 
-    %textarea#exampleTextarea.form-control{:rows => "10"}
-    %br
-    %input{type: "submit", value:"回答する", class: "btn btn-warning btn-block"}/
+      %textarea.form-control{:rows => "10"}
+      %br
+      %input{type: "submit", value:"回答する", class: "btn btn-outline-warning btn-block"}/

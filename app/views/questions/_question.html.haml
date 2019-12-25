@@ -1,7 +1,7 @@
-.card.border-dark.mb-3{:style => "max-width: 50rem;"}
-  .card-header
-    = question.curriculum_i18n
-  .card-body
-    %h4.card-title
-      = link_to question_path(question) do
+.alert.alert-danger{role: "alert"}
+  %h5.alert-heading
+    .fas.fa-question-circle
+      = link_to question_path(question),class: "alert-link" do
         = question.title
+  %hr
+    = question.curriculum_i18n

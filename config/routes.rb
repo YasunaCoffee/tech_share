@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'questions#index'
+  root 'articles#index'
   resources :questions do
     collection do
       get "search"
