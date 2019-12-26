@@ -11,9 +11,9 @@
               = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
             - else
               = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
-          .h2.card-title
+          .h3.card-title
             = @article.title
-          .edit-btn
+          .edit-btn.text-right
             = link_to '編集', edit_article_path(@article)
         .card-body.bg-black.text-light.rounded-bottom
           %p.card-text

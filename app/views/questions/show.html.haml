@@ -11,8 +11,8 @@
               = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
             - else
               = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
-          .edit-btn
-            = link_to '編集する', edit_question_path(@question)
+          .edit-btn.fix-right
+            = link_to '編集する', edit_question_path(@question), {class: "float-right"}
         .card-body.bg-black.text-light.rounded-bottom
           %h4.card-title
             .fas.fa-question-circle
