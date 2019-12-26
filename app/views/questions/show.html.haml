@@ -1,4 +1,4 @@
-.container-fluid.p-4.bg-dark
+.container-fluid.p-4
   .row
     .col-md-2
       =render "template/detail-search"
@@ -13,7 +13,7 @@
               = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
           .edit-btn
             = link_to '編集する', edit_question_path(@question)
-        .card-body.bg-black.text-light.rounded-bottom
+        .card-body.rounded-bottom
           %h4.card-title
             .fas.fa-question-circle
             = @question.title
@@ -23,7 +23,7 @@
         .card-header.bg-warning
           .name 回答者
           .date 2020/1/1
-        .card-body.bg-black.text-light
+        .card-body
           %h4.card-title 解決策を教えます
           %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
       %textarea.form-control{:rows => "10"}
