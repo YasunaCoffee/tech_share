@@ -1,5 +1,5 @@
 .container-fluid.p-4.bg-dark
-  = form_with url: search_questions_path, method: :post, local: true, class: "searchbar_form" do |f|
+  = form_with url: search_articles_path, method: :get, local: true, class: "searchbar_form" do |f|
     .input-group-prepend
       = f.text_field :search, class: "form-control mr-sm-2", placeholder: "キーワードからナレッジを探す..."
       =button_tag type: 'submit', class:"btn btn-outline-danger", id:"basic-addon1" do
