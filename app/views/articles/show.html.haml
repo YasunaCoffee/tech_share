@@ -3,14 +3,14 @@
     .col-md-2
       =render "template/detail-search"
     .col-md-8
-      .card.border-light.mb-3
+      .card.border-dark.mb-3
         .card-header.question_box.bg-darkgray.text-light 
           .name 記事投稿者
           .date
             = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
           .h2.card-title
             = @article.title
-        .card-body.bg-black.text-light.rounded-bottom
+        .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
       %ul.list-unstyled
