@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    # binding.pry
     @articles = Article.where("title LIKE(?)", "#{params[:search]}%")
   end
 
