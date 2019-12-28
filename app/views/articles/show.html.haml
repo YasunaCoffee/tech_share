@@ -1,0 +1,35 @@
+.container-fluid.p-4
+  .row
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
+      .card.border-dark.mb-3
+        .card-header.question_box.bg-darkgray.text-light 
+          .name 記事投稿者
+          .date
+            - if @article.created_at == @article.updated_at
+              = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+            - else
+              = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+          .h2.card-title
+            = @article.title
+          .edit-btn
+            = link_to '編集', edit_article_path(@article)
+        .card-body.rounded-bottom
+          %p.card-text
+            = markdown(@article.content).html_safe
+      %ul.list-unstyled
+        %li.media.mb-4.bg-light.rounded
+          -# =image_tag "media",class: "mr-3 rounded-circle p-2"
+          .media-body
+            %h6 コメントした人
+            %p 投稿日時 2019-1-1
+            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
+        %li.media.mb-4.bg-light.rounded
+          -# =image_tag "media",class: "mr-3 rounded-circle p-2"
+          .media-body
+            %h6 コメントした人
+            %p 投稿日時 2019-1-1
+            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
+    .col-md-2
+      =render "template/sidebar"
