@@ -31,6 +31,8 @@ class ArticlesController < ApplicationController
     else
       render :edit
     end
+  end
+  
   def search
     @articles = Article.where("title LIKE(?)", "#{params[:search]}%")
   end
