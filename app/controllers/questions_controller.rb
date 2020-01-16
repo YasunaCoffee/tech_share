@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   
   def create
     @question = Question.new(question_params)
-    if @question.save!
+    if @question.save
       redirect_to root_path
     else
       render :new
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, :curriculum)
+    params.require(:question).permit(:title, :content)
   end
 
   def set_question
