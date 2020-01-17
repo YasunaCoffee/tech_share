@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
 
   create_table "article_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "simpletag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_tags_on_article_id"
-    t.index ["tag_id"], name: "index_article_tags_on_tag_id"
+    t.index ["simpletag_id"], name: "index_article_tags_on_simpletag_id"
   end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
 
   create_table "question_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "simpletag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_question_tags_on_question_id"
-    t.index ["tag_id"], name: "index_question_tags_on_tag_id"
+    t.index ["simpletag_id"], name: "index_question_tags_on_simpletag_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "simpletags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
   add_foreign_key "answers", "questions"
   add_foreign_key "article_comments", "articles"
   add_foreign_key "article_tags", "articles"
-  add_foreign_key "article_tags", "tags"
+  add_foreign_key "article_tags", "simpletags"
   add_foreign_key "question_tags", "questions"
-  add_foreign_key "question_tags", "tags"
+  add_foreign_key "question_tags", "simpletags"
 end
