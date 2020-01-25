@@ -5,9 +5,10 @@
       = form_with model: @article, local: true do |f|
         .form-group
           %br
-            = f.label "タグを選ぶ", for: "exampletitle"
-            = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name)
-          %br
+            = f.label "タグを選ぶ", for: "exampletitle" ,class: "pr-3"
+            .alert.alert-secondary
+              = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name)
+              =link_to "タグを登録する", new_tag_path ,class: "pl-3"
             = f.label "タイトル", for: "exampletitle"
             = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
           %br

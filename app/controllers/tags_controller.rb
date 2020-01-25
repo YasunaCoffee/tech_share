@@ -7,7 +7,7 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.create(tag_params)
-    redirect_to root_path
+    redirect_to new_article_path
   end
 
   private
