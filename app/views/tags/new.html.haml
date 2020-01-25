@@ -6,7 +6,8 @@
         %h5.alert-heading
           現在登録されているタグ一覧
         - @tags.each do |tag|
-          =tag.name
+          %b
+            =tag.name+"/"
   .row
     .col-md-2
     .col-md-8
