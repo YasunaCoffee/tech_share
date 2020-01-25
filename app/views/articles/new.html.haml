@@ -5,8 +5,9 @@
       = form_with model: @article, local: true do |f|
         .form-group
           %br
-            -# = f.label "タグ", for: "tag"
-            -# = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..."
+            = f.label "タグ", for: "tag"
+            = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..." 
+            -# = f.hidden_field name: "article[tag_ids][]", value: @tag.id
           %br
             = f.label "タイトル", for: "exampletitle"
             = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"

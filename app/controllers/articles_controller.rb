@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @tag = Tag.new
   end
 
   def create
@@ -40,7 +41,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, {:tag_ids => []})
   end
 
   def set_article
