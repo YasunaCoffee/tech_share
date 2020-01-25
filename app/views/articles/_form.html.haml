@@ -1,0 +1,15 @@
+.row.pb-3
+  .col-md-2
+  .col-md-8
+    = form_with model: @article, local: true do |f|
+      .form-group
+        = f.label "タグを選ぶ", for: "exampletitle" ,class: "pr-3"
+        .alert.alert-secondary
+          = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name)
+          =link_to "タグを登録する", new_tag_path ,class: "pl-3"
+        = f.label "タイトル", for: "exampletitle"
+        = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+        %br
+          = f.label "内容", for: "examplecontent"
+          = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "14"
+        = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
