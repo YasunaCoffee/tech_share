@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     end
   end
   resources :articles do
+    resources :article_comments, only: :create
     collection do
       get "search"
+      end
     end
-  end
-  resources :articles
-end
+  end  

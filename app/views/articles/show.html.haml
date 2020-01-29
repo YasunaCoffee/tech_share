@@ -18,18 +18,21 @@
         .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
-      %ul.list-unstyled
-        %li.media.mb-4.bg-light.rounded
-          -# =image_tag "media",class: "mr-3 rounded-circle p-2"
-          .media-body
-            %h6 コメントした人
-            %p 投稿日時 2019-1-1
-            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
-        %li.media.mb-4.bg-light.rounded
-          -# =image_tag "media",class: "mr-3 rounded-circle p-2"
-          .media-body
-            %h6 コメントした人
-            %p 投稿日時 2019-1-1
-            %p もっとこうするといいと思います！もっとこうするといいと思います！もっとこうするといいと思います！
+      = form_with model: @article_comment, local: true do |f|
+        .form-group
+          %br
+            = f.label "内容", for: "examplecontent"
+            = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "コメントをする", rows: "14"
+          = f.submit "コメントする", class: "btn btn-outline-dark btn-block mt-2"
+      -if @article_comments
+        -@article_comments.each do |article_comment|
+          %ul.list-unstyled
+            %li.media.mb-4.bg-light.rounded
+              .media-body
+                %h6 コメントした人
+                %p
+                  =article_comment.created_at
+                %p 
+                  =article_comment.content
     .col-md-2
       =render "template/sidebar"
