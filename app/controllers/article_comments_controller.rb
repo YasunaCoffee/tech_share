@@ -1,6 +1,6 @@
 class ArticleCommentsController < ApplicationController
     def create
-      comment = Article_comment.create(comment_params)
+      comment = ArticleComment.create(comment_params)
       redirect_to "/articles/#{comment.article.id}" 
     end
   
