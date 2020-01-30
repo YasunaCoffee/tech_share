@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     end
   end
   resources :articles
+  resources :tags
 end
