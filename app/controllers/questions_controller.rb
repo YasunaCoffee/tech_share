@@ -33,8 +33,8 @@ class QuestionsController < ApplicationController
   end
   
   def search
-    @questions = Question.where("title LIKE(?)", "#{params[:search]}%")
-    @articles = Article.where("title LIKE(?)", "#{params[:search]}%")
+    @questions = Question.where("title LIKE(?)", "%#{params[:search]}%")
+    @articles = Article.where("title LIKE(?)", "%#{params[:search]}%")
   end
   private
 

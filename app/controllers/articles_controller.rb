@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   end
   
   def search
-    @articles = Article.where("title LIKE(?)", "#{params[:search]}%")
+    @articles = Article.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
   end
 
   private
