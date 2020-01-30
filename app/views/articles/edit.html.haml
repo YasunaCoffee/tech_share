@@ -4,9 +4,9 @@
     .col-md-8
       = form_with model: @article, local: true do |f|
         .form-group
-          %br
-            = f.label "タグ", for: "tag"
-            = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..."
+          -# %br
+          -#   = f.label "タグ", for: "tag"
+          -#   = f.text_field :tag, id: "tag", class: "form-control", row: "1", placeholder: "例 Ruby, Rails, Mysql..."
           %br
             = f.label "タイトル", for: "exampletitle"
             = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
