@@ -11,12 +11,11 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @tag = Tag.new
   end
 
   def create
     article = Article.new(article_params)
-    if article.save!
+    if article.save
       redirect_to articles_path
     else
       render :new
@@ -41,7 +40,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, {:tag_ids => []})
+    params.require(:article).permit(:title, :content, tag_ids: [])
   end
 
   def set_article

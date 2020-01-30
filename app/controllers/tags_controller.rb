@@ -6,8 +6,12 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.create(tag_params)
-    redirect_to new_article_path
+    @tag = Tag.new(tag_params)
+    if @tag.save
+      redirect_to new_article_path
+    else
+      render :new
+    end
   end
 
   private

@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, {:tag_ids => []})
+    params.require(:question).permit(:title, :content, tag_ids: [])
   end
 
   def set_question
