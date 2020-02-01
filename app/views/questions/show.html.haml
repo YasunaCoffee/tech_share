@@ -28,7 +28,7 @@
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
             .card-body
               %p.card-text 
-              =simple_format(answer.content)
+              =markdown(answer.content).html_safe
         =form_with(model: [@question, @answer], local: true) do |form| 
           = form.text_area :content, placeholder: "回答する" ,class: "form-control",rows: "10"
           = form.submit "回答する", class: "btn btn-outline-warning btn-block mt-3"
