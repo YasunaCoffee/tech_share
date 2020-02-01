@@ -11,4 +11,7 @@ Rails.application.routes.draw do
       get "search"
       end
     end
-  end  
+  end
+  resources :articles
+  resources :tags
+end
