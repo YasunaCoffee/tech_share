@@ -19,13 +19,25 @@
             = @question.title
           %p.card-text
             = markdown(@question.content).html_safe
-      .card.border-warning.mb-3
-        .card-header.bg-warning
-          .name 回答者
-          .date 2020/1/1
-        .card-body
-          %h4.card-title 解決策を教えます
-          %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-      %textarea.form-control{:rows => "10"}
-      %br
-      %input{type: "submit", value:"回答する", class: "btn btn-outline-warning btn-block"}/
+      -if @answers
+        -@answers.each do |answer|
+          .card.border-warning.mb-3
+            .card-header.bg-warning
+              .name 回答者
+              .date
+                =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+            .card-body
+              %p.card-text 
+              =simple_format(answer.content)
+        =form_with(model: [@question, @answer], local: true) do |form| 
+          = form.text_area :content, placeholder: "回答する" ,class: "form-control",rows: "10"
+          = form.submit "回答する", class: "btn btn-outline-warning btn-block mt-3"
+
+    -# <div class="comments">   
+    -#   <h4>＜コメント一覧＞</h4>
+    -#   <% if @comments %>
+    -#     <% @comments.each do |comment| %>
+    -#       <p>
+    -#         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+    -#         <%= comment.text %>
+ 
