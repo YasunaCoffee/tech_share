@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   end
   
   def post_notification(article)
-    notification = Slack::Notifier.new "https://hooks.slack.com/services/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"
+    notification = Slack::Notifier.new "https://hooks.slack.com/services/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"
       message = {
                   "fallback": "Tech::Shareに新しい記事が投稿されました。",
                   "color": "#8888",
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
                   "title_link": "http://localhost:3000/articles/#{article.id}",
                   "text": "#{article.content}",
                   "image_url": "https://i0.wp.com/pg-work.com/wp-content/uploads/2019/08/TECHEXPERT-e1533109650694.png?resize=727%2C222&ssl=1"
-        }
+                }
       notification.post attachments: [message]
   end
 
