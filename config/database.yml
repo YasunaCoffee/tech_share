@@ -7,22 +7,22 @@
 #   password: <%= ENV['DATABASE_PASSWORD'] %>
 
 #Centos環境
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: 5
+#   username: root
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
+#   socket: /var/lib/mysql/mysql.sock
  
 #mac環境
-#default: &default
-#  adapter: mysql2
-#  encoding: utf8
-#  pool: 5
-#  username: root
-#  password:
-#  socket: /tmp/mysql.sock
+default: &default
+ adapter: mysql2
+ encoding: utf8
+ pool: 5
+ username: root
+ password:
+ socket: /tmp/mysql.sock
 
 development:
   <<: *default
