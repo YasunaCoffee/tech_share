@@ -32,8 +32,7 @@ test:
   <<: *default
   database: tech-share_test
 
-ba
-production:cle
+production:
   <<: *default
   database: tech-share_production
   username: root
