@@ -26,3 +26,12 @@
       %li.nav-item
         =link_to new_tag_path,class:"nav-link" do 
           .fas.fa-hashtag タグを登録
+      %li.nav-item
+        - if user_signed_in?
+          = link_to "#",class:"nav-link" do
+            マイページ
+          = link_to destroy_user_session_path, method: :delete, class:"nav-link" do
+            ログアウト
+        - else
+          = link_to new_user_registration_path,class: "nav-link" do
+            ログイン
