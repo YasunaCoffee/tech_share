@@ -28,8 +28,10 @@
         -@article_comments.each do |article_comment|
           %ul.list-unstyled
             %li.media.mb-4.bg-light.rounded
-              .media-body
-                %h6 コメントした人
+              .media-body.pl-3.pt-3
+                %b コメントした人
+                %p
+                  =article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
                 %p 
                   =article_comment.content
     .col-md-2

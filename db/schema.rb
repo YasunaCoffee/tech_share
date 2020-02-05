@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
   create_table "article_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_comments_on_article_id"
   end
 
