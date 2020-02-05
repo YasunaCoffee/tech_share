@@ -1,7 +1,11 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.create(answer_params)
-    redirect_to "/questions/#{answer.question_id}"   
+    answer = Answer.new(answer_params)
+    if answer.save
+      redirect_to question_path(answer.question_id)  
+    else
+      render template: "questions/show"
+    end
   end
 
   private
