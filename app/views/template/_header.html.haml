@@ -4,3 +4,6 @@
       = f.text_field :search, class: "form-control mr-sm-2", placeholder: "キーワードからナレッジを探す..."
       =button_tag type: 'submit', class:"btn btn-outline-danger", id:"basic-addon1" do
         %i.fas.fa-search SEARCH
+    .input-check-box
+      = f.select(:test, [['ナレッジを検索', 1], ['質問を検索', 2],['ナレッジと質問を検索', 3]])
+      -# selectボックス仮置き

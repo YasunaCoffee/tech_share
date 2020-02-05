@@ -34,7 +34,20 @@ class ArticlesController < ApplicationController
   end
   
   def search
-    @articles = Article.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
+    binding.pry
+    if params[:test] = 1
+      binding.pry
+      @articles = Article.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
+      #render 先を指定
+    elsif params[:test] = 2
+      @question = Question.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
+      # render先を指定
+    else
+      @articles = Article.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
+      @question = Question.where(["title LIKE(?) OR content LIKE(?)", "%#{params[:search]}%","%#{params[:search]}%"])
+    #render先を指定
+    end
+
   end
 
   private
