@@ -1,9 +1,5 @@
 class ArticleCommentsController < ApplicationController
     def create
-      redirect_to "/articles/#{comment.article_id}" 
-    end
-
-    def create
       comment = ArticleComment.new(comment_params)
       if comment.save
         redirect_to article_path(comment.article_id)  

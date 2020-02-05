@@ -22,7 +22,7 @@
         .form-group
           %br
             = f.label "内容", for: "examplecontent"
-            = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "コメントをする", rows: "14"
+            = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "コメントをする", rows: "10"
           = f.submit "コメントする", class: "btn btn-outline-dark btn-block mt-2"
       -if @article_comments
         -@article_comments.each do |article_comment|
