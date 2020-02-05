@@ -1,19 +1,28 @@
-#Yasuna環境
+#Windows環境
 # default: &default
 #   adapter: mysql2
 #   encoding: utf8
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #   username: root
 #   password: <%= ENV['DATABASE_PASSWORD'] %>
-  
+
+#Centos環境
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: 5
+#   username: root
+#   password: <%= ENV['DATABASE_PASSWORD'] %>
+#   socket: /var/lib/mysql/mysql.sock
+ 
 #mac環境
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+ adapter: mysql2
+ encoding: utf8
+ pool: 5
+ username: root
+ password:
+ socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -23,10 +32,10 @@ test:
   <<: *default
   database: tech-share_test
 
-
-production:
+ba
+production:cle
   <<: *default
   database: tech-share_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: ENV['DATABASE_PASSWORD']
   socket: /var/lib/mysql/mysql.sock

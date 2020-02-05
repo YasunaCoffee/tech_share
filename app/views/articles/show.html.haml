@@ -18,7 +18,7 @@
         .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
-      = form_with model: @article_comment, local: true do |f|
+      = form_with model: @article_comment, url: article_article_comments_path(@article), local: true do |f|
         .form-group
           %br
             = f.label "内容", for: "examplecontent"
@@ -30,8 +30,6 @@
             %li.media.mb-4.bg-light.rounded
               .media-body
                 %h6 コメントした人
-                %p
-                  =article_comment.created_at
                 %p 
                   =article_comment.content
     .col-md-2
