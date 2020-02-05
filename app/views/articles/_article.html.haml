@@ -4,5 +4,6 @@
     = link_to article_path(article),class: "alert-link" do
       = article.title
   %hr
-    = article.tag
+    -article.tags.each do |tag|
+      =tag.name
 
