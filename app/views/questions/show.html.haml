@@ -24,22 +24,26 @@
               .name 回答者
               .date.font-weight-light.pl-4
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-            %p.mb-0
+            .mb-0.pt-2
               =markdown(answer.content).html_safe
             %hr/
             .pl-3
               -if answer.answer_comments
                 -answer.answer_comments.each do |comment|
-                  %p
+                  .d-flex
+                    .name 返信者
+                    .date.font-weight-light.pl-4
+                      =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                  .pt-2
                     =comment.content
                     %hr/
               =form_with(model: @answer_comment, url: "/questions/#{@question.id}/answers/#{answer.id}/answer_comments", local: true) do |form| 
-                = form.text_area :content, placeholder: "回答を書く!" ,class: "form-control",rows: "1"
+                = form.text_area :content, placeholder: "返信を書く" ,class: "form-control",rows: "1"
                 = form.submit "返信する", class: "btn btn-outline-success btn-block mt-3"
 
 
         =form_with(model: [@question, @answer], local: true) do |form| 
-          = form.text_area :content, placeholder: "回答を書く!" ,class: "form-control",rows: "10"
+          = form.text_area :content, placeholder: "回答を書く" ,class: "form-control",rows: "10"
           = form.submit "回答する", class: "btn btn-outline-success btn-block mt-3"
 
  
