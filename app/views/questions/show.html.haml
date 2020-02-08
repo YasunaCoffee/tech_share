@@ -35,7 +35,7 @@
                     .date.font-weight-light.pl-4
                       =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
                   .pt-2
-                    =comment.content
+                    = markdown(comment.content).html_safe
                     %hr/
               =form_with(model: @answer_comment, url: "/questions/#{@question.id}/answers/#{answer.id}/answer_comments", local: true) do |form| 
                 = form.text_area :content, placeholder: "返信を書く" ,class: "form-control",rows: "1"
