@@ -8,7 +8,7 @@
         .d-flex.justify-content-between
           .user.d-flex
             .name 質問者
-            .date.pl-4
+            .date.font-weight-light.pl-4
               - if @question.created_at == @question.updated_at
                 = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
               - else
@@ -22,12 +22,21 @@
           .alert.alert-success
             .d-flex
               .name 回答者
-              .date.pl-4
+              .date.font-weight-light.pl-4
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
             %p.mb-0
               =markdown(answer.content).html_safe
             %hr/
             .pl-3
+              -if answer.answer_comments
+                -answer.answer_comments.each do |comment|
+                  %p
+                    =comment.content
+                    %hr/
+              =form_with(model: @answer_comment, url: "/questions/#{@question.id}/answers/#{answer.id}/answer_comments", local: true) do |form| 
+                = form.text_area :content, placeholder: "回答を書く!" ,class: "form-control",rows: "1"
+                = form.submit "返信する", class: "btn btn-outline-success btn-block mt-3"
+
 
         =form_with(model: [@question, @answer], local: true) do |form| 
           = form.text_area :content, placeholder: "回答を書く!" ,class: "form-control",rows: "10"
