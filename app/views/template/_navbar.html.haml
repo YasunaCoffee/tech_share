@@ -26,11 +26,12 @@
       %li.nav-item
         =link_to new_tag_path,class:"nav-link" do 
           .fas.fa-hashtag タグを登録
-    %ul.navbar-nav
+    %ul.navbar-nav.mr-5
       - if user_signed_in?
         %li.nav-item.dropdown
           .nav-link.dropdown-toggle.btn.btn-outline-warning{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
-            %b アカウント
+            %b
+              =current_user.nickname
           .dropdown-menu
             = link_to "#",class:"nav-link" do
               .dropdown-item マイページ
