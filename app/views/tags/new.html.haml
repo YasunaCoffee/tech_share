@@ -1,0 +1,17 @@
+.container-fluid.p-4
+  .row
+    .col-md-2
+    .col-md-8
+      .alert.alert-dark{role: "alert"}
+        %h5.alert-heading
+          現在登録されているタグ一覧
+        - @tags.each do |tag|
+          %b
+            =tag.name+"/"
+  .row
+    .col-md-2
+    .col-md-8
+      = form_with model: @tag, local: true do |f|
+        .form-group
+          = f.text_field :name, id: "exampletitle", class: "form-control", rows: "1", placeholder: "type a tag..."
+        = f.submit "タグを登録する", class: "btn btn-outline-danger btn-block mt-2"

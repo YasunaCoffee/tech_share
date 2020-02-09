@@ -1,11 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only:[:show, :edit, :update]
+  skip_before_action :authenticate_user!, only:[:index, :show, :search]
 
   def index
     @questions = Question.all
   end
   
   def show
+    @answer = Answer.new
+    @answers = @question.answers
+
   end
 
   def new
@@ -14,7 +18,7 @@ class QuestionsController < ApplicationController
   
   def create
     @question = Question.new(question_params)
-    if @question.save!
+    if @question.save
       redirect_to root_path
     else
       render :new
@@ -35,7 +39,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, :curriculum)
+    params.require(:question).permit(:title, :content, tag_ids: [])
   end
 
   def set_question
