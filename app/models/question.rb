@@ -3,6 +3,10 @@ class Question < ApplicationRecord
   # belongs_to :user
   # このアソシエーションがエラーの原因
   # belongs_to :curriculum
+
+  scope :search, -> (word) { where(["title LIKE(?) OR content LIKE(?)", "%#{word}%","%#{word}%"])}
+
+
   enum curriculum: {
     Basiccurriculum: 0,
     Applicationcurriculum: 1,

@@ -1,0 +1,9 @@
+.contents.container-fluid.p-4
+  .row
+    .col-md-2
+      =render "template/detail-search"
+    .col-md-8
+      %h4.text-center 「"キーワード"」の検索結果
+      =render @articles
+    .col-md-2
+      =render "template/sidebar"
