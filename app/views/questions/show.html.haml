@@ -12,7 +12,7 @@
               - if @question.created_at == @question.updated_at
                 = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
               - else
-                = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+                = @question.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
           .edit-btn
             = link_to '編集する', edit_question_path(@question)
         %p.mb-0
