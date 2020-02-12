@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: :create do
       resources :answer_comments, only: :create
-        collection do
-           get "search"
-        end
       end
     end
   resources :articles do
