@@ -37,7 +37,7 @@
                   .pt-2
                     = markdown(comment.content).html_safe
                     %hr/
-              =form_with(model: @answer_comment, url: "/questions/#{@question.id}/answers/#{answer.id}/answer_comments", local: true) do |form| 
+              =form_with(model: [@question, answer, @answer_comment], local: true) do |form| 
                 = form.text_area :content, placeholder: "返信を書く" ,class: "form-control",rows: "1"
                 = form.submit "返信する", class: "btn btn-outline-success btn-block mt-3"
 
