@@ -1,13 +1,12 @@
 class SearchController < ApplicationController
   def index
     
-    if params[:search_type] = 1
+    if params[:search_type] = 'ナレッジを検索'
       @articles = Article.search(params[:search])
-      #render 先を指定
-    elsif params[:search_type] = 2
+    elsif params[:search_type] = '質問を検索'
       @question = Question.search(params[:search])
       # render先を指定
-    elsif params[:search_type] = 3
+    elsif params[:search_type] = 'ナレッジと質問を検索'
       @articles = Article.search(params[:search])
       @question = Question.search(params[:search])
     #render先を指定

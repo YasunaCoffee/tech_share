@@ -4,6 +4,9 @@
       =render "template/detail-search"
     .col-md-8
       %h4.text-center 「"キーワード"」の検索結果
-      =render @articles
+      - if @articles
+        = render @articles
+      - if @questions
+        = render @questions
     .col-md-2
       =render "template/sidebar"
