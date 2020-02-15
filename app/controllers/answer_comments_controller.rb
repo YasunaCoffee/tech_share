@@ -6,7 +6,7 @@ class AnswerCommentsController < ApplicationController
     else
       @question = Question.find(params[:question_id])
       @answer = @answer_comment.answer
-      @answers = @question.answers
+      @answer = Answer.new
       render template: "questions/show"
     end
   end
