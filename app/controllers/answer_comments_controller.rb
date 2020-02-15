@@ -5,8 +5,8 @@ class AnswerCommentsController < ApplicationController
       redirect_to question_path(params[:question_id])  
     else
       @question = Question.find(params[:question_id])
-      @answer = @answer_comment.answer
       @answer = Answer.new
+      @answers = @question.answers
       render template: "questions/show"
     end
   end
