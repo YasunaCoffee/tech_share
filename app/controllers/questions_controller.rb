@@ -36,10 +36,6 @@ class QuestionsController < ApplicationController
     end
   end
   
-  def search
-    @questions = Question.where("title LIKE(?)", "#{params[:search]}%")
-    @articles = Article.where("title LIKE(?)", "#{params[:search]}%")
-  end
   private
 
   def question_params

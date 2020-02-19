@@ -1,0 +1,25 @@
+.text-center{:style => "padding:50px 0"}
+  .logo TECH::SHARE ログイン
+  .login-form-1
+    #login-form.text-left
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login-form-main-message
+        .main-login-form
+          .login-group
+            .form-group
+              = f.label :email, class: "sr-only"
+              = f.email_field :email, autofocus: true, autocomplete: "email",id: "lg_email", class: "form-control",placeholder: "email"
+            .form-group
+              = f.label :password, class: "sr-only"
+              = f.password_field :password, autocomplete: "current-password", id: "lg_password", class: "form-control",placeholder: "password"
+            .form-group.login-group-checkbox
+              - if devise_mapping.rememberable?
+                = f.check_box :remember_me
+                = f.label :remember_me
+            =button_tag type: 'submit',class: "login-button bg-danger" do
+              %i.fa.fa-chevron-right
+        .etc-login-form
+          %p
+            アカウント登録する?
+            %br
+          = render "devise/shared/links"
