@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :search, only: [:index]
   resources :questions do
-    resources :answers, only: :create
+    resources :answers, only: :create do
+      resources :answer_comments, only: :create
+      end
+    end
   end
   resources :articles do
     resources :article_comments, only: :create 

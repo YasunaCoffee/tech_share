@@ -1,43 +1,49 @@
 .container-fluid.p-4
   .row.pb-4
     .col-md-2
-      -# =render "template/detail-search"
     .col-md-8
-      .card.border-danger.mb-3
-        .card-header.question_box.bg-danger
-          .name 質問者
-          .date
-            - if @question.created_at == @question.updated_at
-              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-            - else
-              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+      .alert
+        %h4.alert-heading.pb-3
+          = @question.title
+        .d-flex.justify-content-between
+          .user.d-flex
+            .name 質問者
+            .date.font-weight-light.pl-4
+              - if @question.created_at == @question.updated_at
+                = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+              - else
+                = @question.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
           .edit-btn
             = link_to '編集する', edit_question_path(@question)
-        .card-body.rounded-bottom
-          %h4.card-title
-            .fas.fa-question-circle
-            = @question.title
-          %p.card-text
-            = markdown(@question.content).html_safe
+        %p.mb-0
+          = markdown(@question.content).html_safe
       -if @answers
         -@answers.each do |answer|
-          .card.border-warning.mb-3
-            .card-header.bg-warning
+          .alert.alert-success
+            .d-flex
               .name 回答者
-              .date
+              .date.font-weight-light.pl-4
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-            .card-body
-              %p.card-text 
+            .mb-0.pt-2
               =markdown(answer.content).html_safe
-        =form_with(model: [@question, @answer], local: true) do |form| 
-          = form.text_area :content, placeholder: "回答する" ,class: "form-control",rows: "10"
-          = form.submit "回答する", class: "btn btn-outline-warning btn-block mt-3"
+            %hr/
+            .pl-3
+              -if answer.answer_comments
+                -answer.answer_comments.each do |comment|
+                  .d-flex
+                    .name 返信者
+                    .date.font-weight-light.pl-4
+                      =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                  .pt-2
+                    = markdown(comment.content).html_safe
+                    %hr/
+              =form_with(model: [@question, answer, @answer_comment], local: true) do |form| 
+                = form.text_area :content, placeholder: "返信を書く" ,class: "form-control",rows: "1"
+                = form.submit "返信する", class: "btn btn-outline-success btn-block mt-3"
 
-    -# <div class="comments">   
-    -#   <h4>＜コメント一覧＞</h4>
-    -#   <% if @comments %>
-    -#     <% @comments.each do |comment| %>
-    -#       <p>
-    -#         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-    -#         <%= comment.text %>
+
+        =form_with(model: [@question, @answer], local: true) do |form| 
+          = form.text_area :content, placeholder: "回答を書く" ,class: "form-control",rows: "10"
+          = form.submit "回答する", class: "btn btn-outline-success btn-block mt-3"
+
  
