@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :answer_comments, only: :create
       end
     end
-  end
+ 
   resources :articles do
     resources :article_comments, only: :create 
   end
