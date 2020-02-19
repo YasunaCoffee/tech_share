@@ -26,12 +26,21 @@
       %li.nav-item
         =link_to new_tag_path,class:"nav-link" do 
           .fas.fa-hashtag タグを登録
-      %li.nav-item
-        - if user_signed_in?
-          = link_to "#",class:"nav-link" do
-            マイページ
-          = link_to destroy_user_session_path, method: :delete, class:"nav-link" do
-            ログアウト
-        - else
-          = link_to new_user_registration_path,class: "nav-link" do
-            ログイン
+    %ul.navbar-nav.mr-5
+      - if user_signed_in?
+        %li.nav-item.dropdown
+          .nav-link.dropdown-toggle.btn.btn-outline-warning{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+            %b
+              =current_user.nickname
+          .dropdown-menu
+            = link_to "#",class:"nav-link" do
+              .dropdown-item マイページ
+            = link_to destroy_user_session_path, method: :delete, class:"nav-link" do
+              .dropdown-item ログアウト
+      - else
+        %li.nav-item
+          = link_to new_user_registration_path,class: "nav-link btn btn-outline-warning mr-2 ml-3" do
+            %b 新規登録
+        %li.nav-item
+          = link_to new_user_session_path,class: "nav-link btn btn-outline-danger" do
+            %b ログイン
