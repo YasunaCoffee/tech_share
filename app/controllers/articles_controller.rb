@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.new(article_params)
+    article = current_user.articles.new(article_params)
     if article.save
       post_notification(article)
       redirect_to articles_path
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :content, tag_ids: [])
   end
 
   def set_article

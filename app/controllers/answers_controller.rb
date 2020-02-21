@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.new(answer_params)
+    answer = current_user.answers.new(answer_params)
     if answer.save
       redirect_to question_path(answer.question_id)  
     else
@@ -10,6 +10,6 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:content).merge(question_id: params[:question_id], user_id: current_user.id)
+    params.require(:answer).permit(:content).merge(question_id: params[:question_id])
   end
 end

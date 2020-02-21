@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   end
   
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
     if @question.save
       redirect_to questions_path
     else
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, :content, tag_ids: [])
   end
 
   def set_question
