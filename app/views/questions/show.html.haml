@@ -2,26 +2,30 @@
   .row.pb-4
     .col-md-2
     .col-md-8
-      .alert
-        %h4.alert-heading.pb-3
+      .alert.alert-warning
+        .d-flex.justify-content-between.pb-2
+          .name
+            質問者：
+            =@question.user.nickname
+          .date.font-weight-light.pl-4
+            - if @question.created_at == @question.updated_at
+              = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+            - else
+              = @question.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+        %h4.alert-heading
           = @question.title
-        .d-flex.justify-content-between
-          .user.d-flex
-            .name 質問者
-            .date.font-weight-light.pl-4
-              - if @question.created_at == @question.updated_at
-                = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-              - else
-                = @question.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
-          .edit-btn
-            = link_to '編集する', edit_question_path(@question)
+        .edit-btn.d-flex.justify-content-end
+          = link_to '編集', edit_question_path(@question)
+        %hr
         %p.mb-0
           = markdown(@question.content).html_safe
       -if @answers
         -@answers.each do |answer|
           .alert.alert-success
-            .d-flex
-              .name 回答者
+            .d-flex.justify-content-between
+              .name
+                回答者：
+                =answer.user.nickname
               .date.font-weight-light.pl-4
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
             .mb-0.pt-2
@@ -30,8 +34,10 @@
             .pl-3
               -if answer.answer_comments
                 -answer.answer_comments.each do |comment|
-                  .d-flex
-                    .name 返信者
+                  .d-flex.justify-content-between
+                    .name
+                      回答者：
+                      =comment.user.nickname
                     .date.font-weight-light.pl-4
                       =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
                   .pt-2
