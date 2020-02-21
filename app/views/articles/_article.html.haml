@@ -3,6 +3,7 @@
     .fas.fa-book
     = link_to article_path(article),class: "alert-link" do
       = article.title
+  =article.user.nickname
   %hr
     -article.tags.each do |tag|
       =tag.name
