@@ -1,38 +1,44 @@
 .container-fluid.p-4
   .row.pb-4
     .col-md-2
-      -# =render "template/detail-search"
     .col-md-8
       .card.border-dark.mb-3
         .card-header.question_box.bg-darkgray.text-light 
-          .name 記事投稿者
-          .date
-            - if @article.created_at == @article.updated_at
-              = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-            - else
-              = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
-          .h2.card-title
-            = @article.title
-          .edit-btn
-            = link_to '編集', edit_article_path(@article)
+          .d-flex.justify-content-end
+            .date
+              - if @article.created_at == @article.updated_at
+                = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+              - else
+                = @article.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
+          .d-flex.justify-content-between
+            .h2.card-title
+              = @article.title
+            .edit-btn
+              = link_to '編集', edit_article_path(@article)
+          .d-flex.justify-content-end
+            .name
+              投稿者：
+              =@article.user.nickname
         .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
-      = form_with model: @article_comment, url: article_article_comments_path(@article), local: true do |f|
-        .form-group
-          %br
-            = f.label "内容", for: "examplecontent"
-            = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "コメントをする", rows: "10"
-          = f.submit "コメントする", class: "btn btn-outline-dark btn-block mt-2"
       -if @article_comments
         -@article_comments.each do |article_comment|
           %ul.list-unstyled
             %li.media.mb-4.bg-light.rounded
               .media-body.pl-3.pt-3
-                %b コメントした人
-                %p
-                  =article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                .d-flex.justify-content-between
+                  %b
+                    =article_comment.user.nickname
+                  %p
+                    =article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
                 %p 
                   =article_comment.content
+      = form_with model: @article_comment, url: article_article_comments_path(@article), local: true do |f|
+        .form-group
+          %br
+            = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "コメントをする", rows: "10"
+          = f.submit "コメントする", class: "btn btn-outline-dark btn-block mt-2"
+
     .col-md-2
       =render "template/sidebar"

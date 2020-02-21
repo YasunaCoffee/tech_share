@@ -1,6 +1,6 @@
 class AnswerCommentsController < ApplicationController
   def create
-    @answer_comment = AnswerComment.new(comment_params)
+    @answer_comment = current_user.answer_comments.new(comment_params)
     if @answer_comment.save
       redirect_to question_path(params[:question_id])  
     else
