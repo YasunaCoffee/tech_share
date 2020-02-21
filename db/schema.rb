@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_052639) do
   end
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "theory", null: false
-    t.text "action", null: false
-    t.text "tip", null: false
+    t.text "content", null: false
     t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -48,21 +48,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_052639) do
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "comment", null: false
-    t.bigint "answer_id", null: false
-    t.index ["answer_id"], name: "index_comments_on_answer_id"
-  end
-
-  create_table "curriculums", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "app", null: false
-    t.string "phase", null: false
-    t.string "url", null: false
   end
 
   create_table "question_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,11 +62,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_052639) do
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
     t.text "content", null: false
-    t.integer "curriculum", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_052639) do
   add_foreign_key "article_comments", "articles"
   add_foreign_key "article_tags", "articles"
   add_foreign_key "article_tags", "tags"
-  add_foreign_key "comments", "answers"
   add_foreign_key "question_tags", "questions"
   add_foreign_key "question_tags", "tags"
 end
