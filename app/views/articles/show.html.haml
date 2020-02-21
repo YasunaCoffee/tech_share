@@ -15,10 +15,12 @@
               = @article.title
             .edit-btn
               = link_to '編集', edit_article_path(@article)
-          .d-flex.justify-content-end
-            .name
-              投稿者：
-              =@article.user.nickname
+          .d-flex.justify-content-between
+            .far.fa-heart
+            = link_to user_path(@article.user),class: "alert-link" do
+              .name
+                投稿者：
+                = @article.user.nickname
         .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe

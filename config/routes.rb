@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :article_comments, only: :create 
   end
   resources :tags
+  resources :users, only: [:show]
  end

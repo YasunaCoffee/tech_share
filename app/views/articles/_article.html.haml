@@ -4,9 +4,10 @@
       .fas.fa-book
       = link_to article_path(article),class: "alert-link" do
         = article.title
-    %p
-      投稿者：
-      =article.user.nickname
+    = link_to user_path(article.user),class: "alert-link" do
+      %p
+        投稿者：
+        =article.user.nickname
   %hr
     -article.tags.each do |tag|
       =tag.name

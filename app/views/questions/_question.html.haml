@@ -5,9 +5,10 @@
         = question.title
   %hr
     .d-flex.justify-content-between
-      .name
-        質問者：
-        =question.user.nickname
+      = link_to user_path(question.user),class: "alert-link" do
+        .name
+          質問者：
+          =question.user.nickname
       .date
         投稿日時：
         =question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
