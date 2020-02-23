@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'articles#index'
 
-  resources :search, only: [:index]
+  resources :search, only: [:index], defaults: { format: 'json' }
+
   resources :questions do
     resources :answers, only: :create do
       resources :answer_comments, only: :create
