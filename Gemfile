@@ -82,3 +82,6 @@ gem 'enum_help'
 gem 'bootstrap'
 gem 'slack-notifier'
 gem 'devise'
+
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
