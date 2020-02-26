@@ -9,13 +9,13 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # SnsCredentialから検索条件に合致するレコードが存在する場合にはそのレコードを参照しなければ保存する。
-    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_initialize
     # passwordの入力を不要にするためパスワードにランダムな値を代入する。
     password = Devise.friendly_token
     # sns認証を実施済みであれば、アソシエーションで取得する。なければemailでユーザーを検索してfirst_or_createで保存する。
     user = sns.user || User.where(email: auth.info.email).first_or_create(nickname: auth.info.name, password: password, password_confirmation: password)
     # 登録済みのuserはそのままログイン処理に移行し、Snscredentialのuser_idを更新する。
-    if user.persisted?
+    if sns.user.blank?
       sns.user = user
       sns.save
     end
