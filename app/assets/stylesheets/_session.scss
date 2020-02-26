@@ -26,7 +26,7 @@ body {
 }
 /*=== 2. Anchor Link ===*/
 a {
-  color: #aaaaaa;
+  color: #FFF;
   transition: all ease-in-out 200ms;
 }
 a:hover {
@@ -36,10 +36,13 @@ a:hover {
 /*=== 3. Text Outside the Box ===*/
 .etc-login-form {
   color: #919191;
-  padding: 10px 20px;
 }
 .etc-login-form p {
   margin-bottom: 5px;
+}
+
+.sns-btn{
+  width: 300px;
 }
 /*=== 4. Main Form ===*/
 .login-form-1 {
