@@ -4,9 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
-
+  # association
+  has_many :answers
+  has_many :answer_comments
+  has_many :articles
+  has_many :article_comments
+  has_many :questions
   has_many :sns_credentials
 
+  # method
   def self.from_omniauth(auth)
     # SnsCredentialから検索条件に合致するレコードが存在する場合にはそのレコードを参照しなければ保存する。
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_initialize
@@ -21,4 +27,5 @@ class User < ApplicationRecord
     end
     user
   end
+  
 end
