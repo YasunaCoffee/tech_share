@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
-  before_action :set_article
+  before_action :set_article, only: :create
+
+  def index
+    @favorites = current_user.favorite_articles
+  end
 
   def create
     @favorite = current_user.favorites.new(article: @article)
