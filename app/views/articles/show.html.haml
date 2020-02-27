@@ -16,6 +16,8 @@
             .edit-btn
               = link_to '編集', edit_article_path(@article)
           .d-flex.justify-content-end
+            .favorite
+              = link_to "お気に入り", article_favorites_path(@article), method: :post
             .name
               投稿者：
               =@article.user.nickname
