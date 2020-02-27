@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :article_comments, only: :create
-    resources :favorites, only: :create
+    resources :favorites, only: [:create]
   end
+
+  resources :users do
+    resources :favorites, only: [:index]
+  end
+
   resources :tags
  end
