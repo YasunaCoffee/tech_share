@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to article_path(@article)
     else
-      redirect_to article_path(@article)
+      render template: "articles/show"
     end
   end
 
