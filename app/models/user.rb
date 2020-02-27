@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :articles
   has_many :article_comments
   has_many :questions
+  has_many :favorites
+  has_many :favorite_articles, class_name: "Article", through: :favorites, foreign_key: "article_id"
 end
