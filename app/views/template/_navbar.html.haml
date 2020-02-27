@@ -37,6 +37,8 @@
               .dropdown-item マイページ
             = link_to destroy_user_session_path, method: :delete, class:"nav-link" do
               .dropdown-item ログアウト
+            = link_to user_favorites_path(current_user), class:"nav-link" do
+              .dropdown-item お気に入り一覧
       - else
         %li.nav-item
           = link_to new_user_registration_path,class: "nav-link btn btn-outline-warning mr-2 ml-3" do
