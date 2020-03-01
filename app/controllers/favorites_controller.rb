@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.new(article: @article)
     if @favorite.save
-      redirect_to article_path(@article)
+      redirect_to @article
     else
       render template: "articles/show"
     end
