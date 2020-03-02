@@ -17,7 +17,7 @@ if defined?(AssetSync)
     #
     # Use http instead of https. Default should be "https" (at least for fog-aws)
     # config.fog_scheme = "http"
-    config.fog_directory = Rails.application.credentials[:aes][:bucket]
+    config.fog_directory = Rails.application.credentials[:aws][:bucket]
 
     # Invalidate a file on a cdn after uploading files
     # config.cdn_distribution_id = "12345"
