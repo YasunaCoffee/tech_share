@@ -11,9 +11,11 @@ Rails.application.routes.draw do
       resources :answer_comments, only: :create
       end
     end
- 
+
   resources :articles do
-    resources :article_comments, only: :create 
+    resources :article_comments, only: :create
+    resources :favorites, only: [:create, :index]
   end
+
   resources :tags
  end
