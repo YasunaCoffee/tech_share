@@ -4,6 +4,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
+  def google_oauth2
+    authorization
+  end
+
   # You should also create an action method in this controller like this:
   # def twitter
   # end
@@ -27,4 +31,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+  private
+
+  def authorization
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication
+    else
+      render template: "devise/registrations/new"
+    end
+  end
 end
