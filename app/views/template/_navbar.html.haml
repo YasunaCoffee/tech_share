@@ -12,19 +12,19 @@
           .fas.fa-home HOME
           %span.sr-only (current)
       %li.nav-item
-        =link_to articles_path,class:"nav-link" do 
+        =link_to articles_path,class:"nav-link" do
           .fas.fa-book ナレッジを読む
       %li.nav-item
-        =link_to new_article_path,class:"nav-link" do 
+        =link_to new_article_path,class:"nav-link" do
           .fas.fa-paper-plane ナレッジを投稿
       %li.nav-item
-        =link_to questions_path,class:"nav-link" do 
+        =link_to questions_path,class:"nav-link" do
           .fas.fa-question-circle 質問を見る
       %li.nav-item
-        =link_to new_question_path,class:"nav-link" do 
+        =link_to new_question_path,class:"nav-link" do
           .far.fa-hand-point-right 質問を投稿
       %li.nav-item
-        =link_to new_tag_path,class:"nav-link" do 
+        =link_to new_tag_path,class:"nav-link" do
           .fas.fa-hashtag タグを登録
     %ul.navbar-nav.mr-5
       - if user_signed_in?
@@ -37,7 +37,7 @@
               .dropdown-item マイページ
             = link_to destroy_user_session_path, method: :delete, class:"nav-link" do
               .dropdown-item ログアウト
-            = link_to user_favorites_path(current_user), class:"nav-link" do
+            = link_to article_favorites_path(current_user), class:"nav-link" do
               .dropdown-item お気に入り一覧
       - else
         %li.nav-item
