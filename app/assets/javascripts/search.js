@@ -25,8 +25,6 @@ $(function () {
     return html
   }
   const buildQuestions = function (question) {
-    console.log(question)
-
     const html = `<div class="alert alert-warning">
     <h5 class="alert-heading">
     <div class="fas fa-question-circle" aria-hidden="true">
@@ -56,7 +54,6 @@ $(function () {
     e.preventDefault();
     const keyword = $('#search').val()
     const search_type = $('#search_type').val()
-    console.log('hello')
     
     $.ajax({ 
       url: '/search',
@@ -83,10 +80,11 @@ $(function () {
           addHTML += buildQuestions(question);
         });
       } 
-      
       $('.search_result').append(addHTML);
-
-      console.log(results)
+    })
+      
+    .fail(function () {
+    alert('検索に失敗しました')  
     })
   })
 
