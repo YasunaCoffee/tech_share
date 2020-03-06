@@ -14,7 +14,7 @@
 #   username: root
 #   password: <%= ENV['DATABASE_PASSWORD'] %>
 #   socket: /var/lib/mysql/mysql.sock
- 
+
 #mac環境
 default: &default
  adapter: mysql2
@@ -34,7 +34,9 @@ test:
 
 production:
   <<: *default
+  reconnect: false
+  socket: /var/lib/mysql/mysql.sock
+  host: tech-share-web.cr44stouhopx.ap-northeast-1.rds.amazonaws.com
   database: tech-share_production
   username: root
-  password: ENV['DATABASE_PASSWORD']
-  socket: /var/lib/mysql/mysql.sock
+  password: <%= Rails.application.credentials[:database][:password] %>
