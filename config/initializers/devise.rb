@@ -22,7 +22,8 @@ Devise.setup do |config|
 
   # google_oauth2のclient_idとclient_secret
   config.omniauth :google_oauth2, Rails.application.credentials[:google][:client_id],
-                                  Rails.application.credentials[:google][:client_secret]
+                                  Rails.application.credentials[:google][:client_secret],
+                                  skip_jwt: true
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

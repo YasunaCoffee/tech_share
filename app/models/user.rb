@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :articles
   has_many :article_comments
   has_many :questions
+  has_many :favorites
+  has_many :favorite_articles, through: :favorites, source: :article
   has_many :sns_credentials
 
   # method
@@ -27,5 +29,4 @@ class User < ApplicationRecord
     end
     user
   end
-  
 end

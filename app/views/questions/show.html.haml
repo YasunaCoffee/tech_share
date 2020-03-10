@@ -31,12 +31,12 @@
             .mb-0.pt-2
               =markdown(answer.content).html_safe
             %hr/
-            .pl-3
+            .alert.alert-light
               -if answer.answer_comments
                 -answer.answer_comments.each do |comment|
                   .d-flex.justify-content-between
                     .name
-                      回答者：
+                      コメント：
                       =comment.user.nickname
                     .date.font-weight-light.pl-4
                       =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")

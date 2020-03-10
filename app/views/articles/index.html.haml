@@ -2,9 +2,8 @@
   .row
     .col-md-2
     .col-md-8
-      .spinner-border.spinner-grow-sm.text-secondary{:role => "status"}
-        %span.sr-only Loading...
-      更新されたナレッジ
+      .btn.btn-dark.active
+        更新されたナレッジ
       =render @articles
     .col-md-2
       =render "template/sidebar"

@@ -18,8 +18,13 @@ class ArticlesController < ApplicationController
   def create
     article = current_user.articles.new(article_params)
     if article.save
-      post_notification(article)
-      redirect_to articles_path
+      begin
+        post_notification(article)
+      rescue => exception
+        redirect_to root_path
+      else
+        redirect_to articles_path
+      end
     else
       render :new
     end
@@ -35,7 +40,7 @@ class ArticlesController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
   def article_params
@@ -45,7 +50,7 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
-  
+
   def post_notification(article)
     notification = Slack::Notifier.new "https://hooks.slack.com/services/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"
       message = {
