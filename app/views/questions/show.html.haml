@@ -16,6 +16,8 @@
           = @question.title
         .edit-btn.d-flex.justify-content-end
           = link_to '編集', edit_question_path(@question)
+        .delete-btn
+          = link_to '削除', question_path(@question), method: :delete
         %hr
         %p.mb-0
           = markdown(@question.content).html_safe

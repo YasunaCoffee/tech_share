@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  has_many :answers
+  has_many :answers, dependent: :destroy
   belongs_to :user
 
   # belongs_to :user
@@ -15,7 +15,7 @@ class Question < ApplicationRecord
     Finalsubject: 2
   }
 
-  has_many :question_tags
+  has_many :question_tags, dependent: :destroy
   has_many :tags, through: :question_tags
 
   # enum curriculum: {
