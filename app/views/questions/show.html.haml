@@ -44,6 +44,8 @@
                       =comment.user.nickname
                     .date.font-weight-light.pl-4
                       =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                    .delete-btn
+                      = link_to '削除', question_answer_answer_comment_path(@question, answer, comment), method: :delete
                   .pt-2
                     = markdown(comment.content).html_safe
                     %hr/
