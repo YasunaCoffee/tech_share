@@ -13,33 +13,35 @@
           .d-flex.justify-content-between
             .h2.card-title
               = @article.title
-            .edit-btn
-              = link_to '編集', edit_article_path(@article)
-            .delete-btn
-              = link_to '削除', article_path(@article), method: :delete
+            - if current_user.id == @article.user.id
+              .edit-btn
+                = link_to '編集', edit_article_path(@article)
+              .delete-btn
+                = link_to '削除', article_path(@article), method: :delete
           .d-flex.justify-content-end
             .favorite
               = link_to "☆", article_favorites_path(@article), method: :post
             .name
               投稿者：
-              =@article.user.nickname
+              = @article.user.nickname
         .card-body.rounded-bottom
           %p.card-text
             = markdown(@article.content).html_safe
-      -if @article_comments
-        -@article_comments.each do |article_comment|
+      - if @article_comments
+        - @article_comments.each do |article_comment|
           %ul.list-unstyled
             %li.media.mb-4.bg-light.rounded
               .media-body.pl-3.pt-3
                 .d-flex.justify-content-between
                   %b
-                    =article_comment.user.nickname
+                    = article_comment.user.nickname
                   %p
-                    =article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-                  %p
-                    = link_to '削除', article_article_comment_path(@article, article_comment), method: :delete
+                    = article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                  - if current_user.id == article_comment.user.id
+                    %p
+                      = link_to '削除', article_article_comment_path(@article, article_comment), method: :delete
                 %p
-                  =article_comment.content
+                  = article_comment.content
       = form_with model: @article_comment, url: article_article_comments_path(@article), local: true do |f|
         .form-group
           %br
@@ -47,4 +49,4 @@
           = f.submit "コメントする", class: "btn btn-outline-dark btn-block mt-2"
 
     .col-md-2
-      =render "template/sidebar"
+      = render "template/sidebar"

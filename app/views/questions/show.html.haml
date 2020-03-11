@@ -6,7 +6,7 @@
         .d-flex.justify-content-between.pb-2
           .name
             質問者：
-            =@question.user.nickname
+            = @question.user.nickname
           .date.font-weight-light.pl-4
             - if @question.created_at == @question.updated_at
               = @question.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
@@ -14,42 +14,45 @@
               = @question.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分 編集済み")
         %h4.alert-heading
           = @question.title
-        .edit-btn.d-flex.justify-content-end
-          = link_to '編集', edit_question_path(@question)
-        .delete-btn
-          = link_to '削除', question_path(@question), method: :delete
+        - if current_user.id == @question.user.id
+          .edit-btn.d-flex.justify-content-end
+            = link_to '編集', edit_question_path(@question)
+          .delete-btn
+            = link_to '削除', question_path(@question), method: :delete
         %hr
         %p.mb-0
           = markdown(@question.content).html_safe
-      -if @answers
-        -@answers.each do |answer|
+      - if @answers
+        - @answers.each do |answer|
           .alert.alert-success
             .d-flex.justify-content-between
               .name
                 回答者：
-                =answer.user.nickname
+                = answer.user.nickname
               .date.font-weight-light.pl-4
-                =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-              .delete-btn
-                = link_to '削除', question_answer_path(@question, answer), method: :delete
+                = answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+              - if current_user.id == answer.user.id
+                .delete-btn
+                  = link_to '削除', question_answer_path(@question, answer), method: :delete
             .mb-0.pt-2
-              =markdown(answer.content).html_safe
+              = markdown(answer.content).html_safe
             %hr/
             .alert.alert-light
-              -if answer.answer_comments
-                -answer.answer_comments.each do |comment|
+              - if answer.answer_comments
+                - answer.answer_comments.each do |comment|
                   .d-flex.justify-content-between
                     .name
                       コメント：
-                      =comment.user.nickname
+                      = comment.user.nickname
                     .date.font-weight-light.pl-4
-                      =comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-                    .delete-btn
-                      = link_to '削除', question_answer_answer_comment_path(@question, answer, comment), method: :delete
+                      = comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+                    - if current_user.id == comment.user.id
+                      .delete-btn
+                        = link_to '削除', question_answer_answer_comment_path(@question, answer, comment), method: :delete
                   .pt-2
                     = markdown(comment.content).html_safe
                     %hr/
-              =form_with(model: [@question, answer, @answer_comment], local: true) do |form| 
+              = form_with(model: [@question, answer, @answer_comment], local: true) do |form|
                 = form.text_area :content, placeholder: "返信を書く" ,class: "form-control",rows: "1"
                 = form.submit "返信する", class: "btn btn-outline-success btn-block mt-3"
 
