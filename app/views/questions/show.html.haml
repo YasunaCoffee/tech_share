@@ -30,6 +30,8 @@
                 =answer.user.nickname
               .date.font-weight-light.pl-4
                 =answer.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
+              .delete-btn
+                = link_to '削除', question_answer_path(@question, answer), method: :delete
             .mb-0.pt-2
               =markdown(answer.content).html_safe
             %hr/
