@@ -36,7 +36,9 @@
                     =article_comment.user.nickname
                   %p
                     =article_comment.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分")
-                %p 
+                  %p
+                    = link_to '削除', article_article_comment_path(@article, article_comment), method: :delete
+                %p
                   =article_comment.content
       = form_with model: @article_comment, url: article_article_comments_path(@article), local: true do |f|
         .form-group
