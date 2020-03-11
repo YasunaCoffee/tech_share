@@ -1,0 +1,11 @@
+.container-fluid.p-4
+  .row
+    .col-md-2
+    .col-md-8.container
+      .row
+        .list-group.col-6
+          = render partial: 'user', collection: @users_odd, as: :user
+        .list-group.col-6
+          = render partial: 'user', collection: @users_even, as: :user
+    .col-md-2
+      =render "template/sidebar"
