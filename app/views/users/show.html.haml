@@ -1,0 +1,9 @@
+.container-fluid.p-4
+  .row
+    .col-md-2
+    .col-md-8
+      .btn.btn-dark.active
+        #{@user.nickname}さんが投稿したナレッジ
+      = render partial: 'articles/article', collection: @user.articles, as: :article
+    .col-md-2
+      = render "template/sidebar"
