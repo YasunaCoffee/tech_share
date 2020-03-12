@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_012957) do
+ActiveRecord::Schema.define(version: 2020_02_24_095025) do
 
   create_table "answer_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_favorites_on_article_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "question_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.bigint "tag_id", null: false
@@ -76,6 +85,15 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,7 +124,10 @@ ActiveRecord::Schema.define(version: 2020_01_16_012957) do
   add_foreign_key "article_tags", "articles"
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
+  add_foreign_key "favorites", "articles"
+  add_foreign_key "favorites", "users"
   add_foreign_key "question_tags", "questions"
   add_foreign_key "question_tags", "tags"
   add_foreign_key "questions", "users"
+  add_foreign_key "sns_credentials", "users"
 end

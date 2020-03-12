@@ -21,10 +21,10 @@
               - if @minimum_password_length
                 %em
                   (#{@minimum_password_length} 文字以上)
-            =button_tag type: 'submit',class: "login-button bg-warning" do
+            = button_tag type: 'submit',class: "login-button bg-warning" do
               %i.fa.fa-chevron-right
         .etc-login-form
           %p
-            すでにアカウントを持っている?
+            すでにメールアドレスで登録済み？
             %br
             = render "devise/shared/links"
