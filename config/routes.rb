@@ -7,16 +7,17 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :search, only: [:index]
+  resources :search, only: [:index], defaults: { format: 'json' }
+
   resources :questions do
-    resources :answers, only: :create do
-      resources :answer_comments, only: :create
+    resources :answers, only: [:create, :destroy] do
+      resources :answer_comments, only: [:create, :destroy]
       end
     end
 
   resources :articles do
-    resources :article_comments, only: :create
     resources :favorites, only: [:create, :index]
+    resources :article_comments, only: [:create, :destroy]
   end
 
   resources :tags
