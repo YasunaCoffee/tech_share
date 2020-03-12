@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root 'articles#index'
 
-  resources :search, only: [:index]
+  resources :search, only: [:index], defaults: { format: 'json' }
 
   resources :questions do
     resources :answers, only: [:create, :destroy] do
