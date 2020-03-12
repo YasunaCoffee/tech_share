@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   }
   root 'articles#index'
 
+  resources :users, only: [:index, :show]
+
   resources :search, only: [:index], defaults: { format: 'json' }
 
   resources :questions do
@@ -19,4 +21,5 @@ Rails.application.routes.draw do
   end
 
   resources :tags
+
  end
