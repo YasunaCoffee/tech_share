@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-has_many :questions
-has_many :answer_comments
-belongs_to :user
+  has_many :answer_comments, dependent: :destroy
+  belongs_to :question
+  belongs_to :user
 end

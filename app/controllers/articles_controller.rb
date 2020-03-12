@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only:[:show, :edit, :update]
+  before_action :set_article, only:[:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only:[:index, :show, :search]
 
   def index
@@ -30,6 +30,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    if @article.destroy
+      redirect_to root_path
+    else
+      redirect_to @article
+    end
+  end
+  
   def edit
   end
 
