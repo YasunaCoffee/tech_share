@@ -7,4 +7,5 @@ class Article < ApplicationRecord
   has_many :favorites
   validates :title, presence: true
   validates :content, presence: true
+  validates :tags, presence: true
 end

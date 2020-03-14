@@ -16,8 +16,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = current_user.articles.new(article_params)
-    if article.save
+    @article = current_user.articles.new(article_params)
+    if @article.save
       begin
         post_notification(article)
       rescue => exception
