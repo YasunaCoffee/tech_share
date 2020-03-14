@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
-has_many :questions
-has_many :answer_comments
-belongs_to :user
-validates :content, presence: true
+  validates :content, presence: true
+  has_many :answer_comments, dependent: :destroy
+  belongs_to :question
+  belongs_to :user
 end

@@ -7,7 +7,13 @@ class ArticleCommentsController < ApplicationController
         render template: "articles/show"
       end
     end
-  
+
+    def destroy
+      article_comment = ArticleComment.find(params[:id])
+      article_comment.destroy
+      redirect_to article_comment.article
+    end
+
     private
     def comment_params
       params.require(:article_comment).permit(:content).merge(article_id: params[:article_id])
