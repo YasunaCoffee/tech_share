@@ -1,0 +1,9 @@
+- if user_signed_in?
+  - if @favorite.present?
+    = link_to("/articles/#{@article.id}/favorites/#{@favorite.id}", method: :delete, id: "like-button", remote: true) do
+      お気に入りから外す
+  - else
+    = link_to("/articles/#{@article.id}/favorites", method: :post, remote: true) do
+      お気に入り登録
+- else
+  お気に入り登録
