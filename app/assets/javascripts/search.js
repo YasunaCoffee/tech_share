@@ -1,5 +1,49 @@
 $(document).on('turbolinks:load', function() {
 
+  const searchFunction = function (url) {
+    const keyword = $('#search').val()
+    const search_type = $('#search_type').val()
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        search: keyword,
+        search_type: search_type,
+      },
+      dataType: 'json'
+    })
+
+      .done(function (results) {
+        $('.search_result').empty();
+      let addHTML = ''
+
+      if (results.articles) {
+        results.articles.forEach(function (article) {
+          addHTML += buildArticle(article);
+        });
+      }
+      
+      
+      if (results.questions) {
+        results.questions.forEach(function (question) {
+          addHTML += buildQuestion(question);
+        });
+      }
+      
+        if (results.users) {
+        results.users.forEach(function (user) {
+          addHTML += buildUser(user);
+        });
+      }
+      $('.search_result').append(addHTML);
+    })
+
+    .fail(function () {
+      alert('検索に失敗しました')
+    })
+  }
+
+
   // HTML要素をコピーして貼り付ける
   const buildArticle = function (article) {
     let tags = ''
@@ -27,7 +71,7 @@ $(document).on('turbolinks:load', function() {
       </div>`
     return html
   }
-  const buildQuestions = function (question) {
+  const buildQuestion = function (question) {
     const html =
       `<div class="alert alert-warning">
         <h5 class="alert-heading">
@@ -51,44 +95,34 @@ $(document).on('turbolinks:load', function() {
     return html
   }
 
+
+  const buildUser = function (user) {
+    const html = `
+      <div class="row">
+        <div class="list-group col">
+          <a class="list-group-item list-group-item-action" href="/users/${user.id}">${user.nickname}</a>
+        </div>
+      </div>
+    `
+    return html
+  }
+  
   // 検証からコピペできる
   // フロントの検索ボタンと、検索条件のボタンを削除する
 
-  $('#search').on('input', function(e) {
-    e.preventDefault();
-    const keyword = $('#search').val()
-    const search_type = $('#search_type').val()
-    $.ajax({
-      url: '/search',
-      type: 'GET',
-      data: {
-        search: keyword,
-        search_type: search_type,
-      },
-      dataType: 'json'
+  if (location.pathname.match(/articles/)) {
+    $('#search').on('input', function (e) {
+      e.preventDefault();
+      searchFunction('/search/index')
     })
+  }
 
-    .done(function (results) {
-      $('.search_result').empty();
-      let addHTML = ''
+  if (location.pathname.match(/users/)) {
+    $('.js-search-form').attr('placeholder', 'キーワードからユーザーを探す...')
+    $('#search').on('input', function (e) { 
 
-      if (results.articles.length > 0) {
-        results.articles.forEach(function (article) {
-          addHTML += buildArticle(article);
-        });
-      }
-
-      if (results.questions.length > 0) {
-        results.questions.forEach(function (question) {
-          addHTML += buildQuestions(question);
-        });
-      }
-      $('.search_result').append(addHTML);
+      searchFunction('/search/users_index')
     })
-
-    .fail(function () {
-      alert('検索に失敗しました')
-    })
-  })
+  }
 
 });

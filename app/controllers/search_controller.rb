@@ -5,4 +5,7 @@ class SearchController < ApplicationController
     render :index, format: :json
   end
 
+  def users_index
+    @users  = User.where(["nickname LIKE(?)", "%#{params[:search]}%"])
+  end
 end

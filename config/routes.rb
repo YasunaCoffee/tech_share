@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :search, only: [:index], defaults: { format: 'json' }
+  namespace :search, defaults: { format: 'json' } do
+    get 'index'
+    get 'users_index'
+  end
 
   resources :questions do
     resources :answers, only: [:create, :destroy] do
