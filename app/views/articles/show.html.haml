@@ -20,7 +20,7 @@
                 = link_to '削除', article_path(@article), method: :delete
           .d-flex.justify-content-end
             .favorites_buttons{data: {article: {id: @article.id}}}
-              = render partial: 'favorites/favorite', locals: {article: @article}
+              = render partial: 'favorites/favorite', locals: {article: @article, favorite: @favorite}
             .name
               投稿者：
               = @article.user.nickname
