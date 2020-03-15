@@ -4,6 +4,7 @@
     .col-md-8
       .btn.btn-dark.active
         更新されたナレッジ
-      =render @articles
+      .search_result
+        = render @articles
     .col-md-2
-      =render "template/sidebar"
+      = render "template/sidebar"

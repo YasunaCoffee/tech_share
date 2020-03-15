@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function() {
 
   // HTML要素をコピーして貼り付ける
   const buildArticle = function (article) {
@@ -9,7 +9,7 @@ $(function () {
       tags += tag_name
     });
 
-    const html = 
+    const html =
       `<div class="alert alert-dark" role="alert">
         <div class="d-flex justify-content-between">
           <h5 class="alert-heading">
@@ -28,7 +28,7 @@ $(function () {
     return html
   }
   const buildQuestions = function (question) {
-    const html = 
+    const html =
       `<div class="alert alert-warning">
         <h5 class="alert-heading">
           <div class="fas fa-question-circle" aria-hidden="true">
@@ -53,42 +53,41 @@ $(function () {
 
   // 検証からコピペできる
   // フロントの検索ボタンと、検索条件のボタンを削除する
-  
+
   $('#search').on('input', function(e) {
     e.preventDefault();
     const keyword = $('#search').val()
     const search_type = $('#search_type').val()
-    
-    $.ajax({ 
+    $.ajax({
       url: '/search',
       type: 'GET',
       data: {
         search: keyword,
         search_type: search_type,
       },
-      dataType: 'json' 
+      dataType: 'json'
     })
-      
+
     .done(function (results) {
       $('.search_result').empty();
       let addHTML = ''
 
-      if (results.articles.length > 0) { 
+      if (results.articles.length > 0) {
         results.articles.forEach(function (article) {
           addHTML += buildArticle(article);
         });
       }
-      
-      if (results.questions.length > 0) {   
+
+      if (results.questions.length > 0) {
         results.questions.forEach(function (question) {
           addHTML += buildQuestions(question);
         });
-      } 
+      }
       $('.search_result').append(addHTML);
     })
-      
+
     .fail(function () {
-      alert('検索に失敗しました')  
+      alert('検索に失敗しました')
     })
   })
 
