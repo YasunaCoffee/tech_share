@@ -1,7 +1,9 @@
 - if user_signed_in?
   - if article.favorited?(current_user)
-    = link_to("お気に入りから外す", article_favorite_path(article, favorite), method: :delete, class: "favorite_button, favorited", remote: true)
+    = link_to(article_favorite_path(article, favorite), method: :delete, class: "favorite_button, favorited", remote: true) do
+      .fas.fa-star
   - else
-    = link_to("お気に入り登録", article_favorites_path(article), method: :post,  class: "favorite_button", remote: true)
+    = link_to(article_favorites_path(article), method: :post,  class: "favorite_button", remote: true) do
+      .far.fa-star
 - else
   お気に入り登録
