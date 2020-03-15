@@ -58,7 +58,6 @@ $(document).on('turbolinks:load', function() {
     e.preventDefault();
     const keyword = $('#search').val()
     const search_type = $('#search_type').val()
-    console.log(1)
     $.ajax({
       url: '/search',
       type: 'GET',
@@ -70,7 +69,6 @@ $(document).on('turbolinks:load', function() {
     })
 
     .done(function (results) {
-      console.log(results)
       $('.search_result').empty();
       let addHTML = ''
 
