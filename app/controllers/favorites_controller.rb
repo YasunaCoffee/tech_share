@@ -7,7 +7,6 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    binding.pry
     @favorite = current_user.favorites.new(article: @article)
    
     if @favorite.save
@@ -18,6 +17,11 @@ class FavoritesController < ApplicationController
     else
       render template: "articles/show"
     end
+  end
+
+  def destroy
+    @favorite = Favorite.find_by(params[:favorite_id])
+    @favorite.destroy
   end
 
   private
