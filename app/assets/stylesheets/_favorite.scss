@@ -1,8 +1,12 @@
-.favorite{
+.favorites_buttons{
   color: gray;
   margin-right: 5px;
 }
 
 .favorite:hover{
   color: yellow;
+}
+
+.favorited{
+  color: red;
 }
