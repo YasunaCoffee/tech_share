@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :set_article, only: :create
+  before_action :set_article, only: [:create, :destroy]
   protect_from_forgery except: :create
 
   def index
@@ -7,21 +7,17 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = current_user.favorites.new(article: @article)
-   
-    if @favorite.save
-      respond_to do |format|
-        format.html {redirect_to @article}
-        format.json
-      end
-    else
-      render template: "articles/show"
-    end
+    @favorite = current_user.favorites.new(article: @article)  
+    @favorite.save
+    # TODO
+    # エラーハンドリング
   end
 
   def destroy
     @favorite = Favorite.find_by(params[:favorite_id])
     @favorite.destroy
+    # TODO
+    # エラーハンドリング
   end
 
   private
