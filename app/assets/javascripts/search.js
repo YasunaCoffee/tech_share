@@ -2,18 +2,15 @@ $(document).on('turbolinks:load', function() {
 
   const searchFunction = function (url) {
     const keyword = $('#search').val()
-    const search_type = $('#search_type').val()
     $.ajax({
       url: url,
       type: 'GET',
       data: {
-        search: keyword,
-        search_type: search_type,
+        search: keyword
       },
       dataType: 'json'
     })
-
-      .done(function (results) {
+    .done(function (results) {
         $('.search_result').empty();
       let addHTML = ''
 
@@ -37,7 +34,6 @@ $(document).on('turbolinks:load', function() {
       }
       $('.search_result').append(addHTML);
     })
-
     .fail(function () {
       alert('検索に失敗しました')
     })
@@ -111,16 +107,14 @@ $(document).on('turbolinks:load', function() {
   // フロントの検索ボタンと、検索条件のボタンを削除する
 
   if (location.pathname.match(/articles/)) {
-    $('#search').on('input', function (e) {
-      e.preventDefault();
+    $('#search').on('input', function () {
       searchFunction('/search/index')
     })
   }
 
   if (location.pathname.match(/users/)) {
     $('.js-search-form').attr('placeholder', 'キーワードからユーザーを探す...')
-    $('#search').on('input', function (e) { 
-
+    $('#search').on('input', function () { 
       searchFunction('/search/users_index')
     })
   }
