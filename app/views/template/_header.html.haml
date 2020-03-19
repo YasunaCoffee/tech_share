@@ -1,4 +1,4 @@
 .container-fluid.p-4.bg-dark
   = form_with url: search_index_path, method: :get, class: "searchbar_form" do |f|
-    .form-group.d-flex
-      = f.text_field :search, class: "form-control col-md-8 js-search-form", placeholder: "キーワードからナレッジを探す..."
+    .form-group
+      = f.text_field :search, class: "form-control js-search-form", placeholder: "検索ワードを入力する(ナレッジ/質問)"

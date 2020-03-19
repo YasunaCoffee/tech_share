@@ -49,6 +49,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def begginer
+  end
+
   private
 
   def article_params

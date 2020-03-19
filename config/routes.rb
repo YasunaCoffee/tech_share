@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :article_comments, only: [:create, :destroy]
   end
 
+  get 'begginer', to: 'articles#begginer'
+
   resources :tags
 
  end
