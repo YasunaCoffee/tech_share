@@ -1,5 +1,5 @@
 - if user_signed_in?
-  - if article.favorited?(current_user)
+  - if current_user.favorite_articles.include?(article)
     = link_to(article_favorite_path(article, favorite), method: :delete, class: "favorite_button, favorited", remote: true) do
       .fas.fa-star
   - else
