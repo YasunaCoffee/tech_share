@@ -1,36 +1,34 @@
 %nav.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top
-  .navbar-brand
+  .navbar-brand.d-flex
     = link_to root_path do
       = image_tag 'ts_header_logo.png'
-    %small
+    %small.pt-4
       knowledge for mentors
-  %button.navbar-toggler{"aria-controls" => "navbarColor01", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor01", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
   #navbarColor01.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
+      %li.nav-item.js-breadcrumb-home.active
         %a.nav-link{:href => root_path}
           .fas.fa-home HOME
           %span.sr-only (current)
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-begginer
         =link_to begginer_path,class:"nav-link" do
           .fas.fa-book 初めてのかたへ
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-knowledge-read
         =link_to articles_path,class:"nav-link" do
           .fas.fa-book ナレッジを読む
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-knowledge-post
         =link_to new_article_path,class:"nav-link" do
           .fas.fa-paper-plane ナレッジを投稿
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-question-read
         =link_to questions_path,class:"nav-link" do
           .fas.fa-question-circle 質問を見る
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-question-post
         =link_to new_question_path,class:"nav-link" do
-          .far.fa-hand-point-right 質問を投稿
-      %li.nav-item
+          .fas.fa-paper-plane 質問を投稿
+      %li.nav-item.js-breadcrumb-tag
         =link_to new_tag_path,class:"nav-link" do
           .fas.fa-hashtag タグを登録
-      %li.nav-item
+      %li.nav-item.js-breadcrumb-users
         =link_to users_path,class:"nav-link" do
           .fas.fa-user-circle ユーザー検索
     %ul.navbar-nav.mr-5
