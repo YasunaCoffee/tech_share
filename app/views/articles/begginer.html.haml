@@ -20,7 +20,7 @@
           .img-fluid.rounded-circle
             = image_tag 'knowledge'
       .col-lg-6
-        .p-5
+        .p-5.card.bg-secondary
           = link_to '#article-function', class: 'js-scrollBtn' do
             %h2.display-5 ナレッジ投稿・閲覧機能
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
@@ -32,7 +32,7 @@
           .img-fluid.rounded-circle
             = image_tag 'question'
       .col-lg-6.order-lg-1
-        .p-5
+        .p-5.card.bg-secondary
           = link_to '#question-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn 質問投稿・回答機能
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
@@ -44,7 +44,7 @@
           .img-fluid.rounded-circle
             = image_tag 'typing'
       .col-lg-6
-        .p-5
+        .p-5.card.bg-secondary
           = link_to '#search-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn 検索機能
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
@@ -56,17 +56,28 @@
           .img-fluid.rounded-circle
             = image_tag 'like'
       .col-lg-6.order-lg-1
-        .p-5
+        .p-5.card.bg-secondary
           = link_to '#favorite-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn お気に入り機能
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
-
-%section#article-function{ style: 'height: 500px;' }
-  記事
-%section#question-function{ style: 'height: 500px;' }
-  しつもん
-%section#search-function{ style: 'height: 500px;' }
-  検索
-%section#favorite-function{ style: 'height: 500px;' }
-  お気に入り
+  %section#article-function{ style: 'height: 500px;' }
+    .container
+      .row.align-items-center
+        .col-lg-6.order-lg-2
+          %h3 ナレッジ投稿・閲覧機能
+  %section#question-function{ style: 'height: 500px;' }
+    .container
+      .row.align-items-center
+        .col-lg-6.order-lg-2
+          %h3 質問投稿・回答機能
+  %section#search-function{ style: 'height: 500px;' }
+    .container
+      .row.align-items-center
+        .col-lg-6.order-lg-2
+          %h3 検索機能
+  %section#favorite-function{ style: 'height: 500px;' }
+    .container
+      .row.align-items-center
+        .col-lg-6.order-lg-2
+          %h3 お気に入り機能
 
