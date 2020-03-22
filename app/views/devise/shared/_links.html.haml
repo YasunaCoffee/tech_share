@@ -2,7 +2,12 @@
   .btn.btn-dark.sns-btn.mb-3
     - resource_class.omniauth_providers.each do |provider|
       = link_to omniauth_authorize_path(resource_name, provider), method: :post do
-        .fab.fa-google  Googlアカウントで登録
+        - if controller_name == "registrations"
+          .fab.fa-google
+            Googlアカウントで登録
+        - elsif controller_name == "sessions"
+          .fab.fa-google
+            Googlアカウントでログイン
       %br/
 - if controller_name != 'sessions'
   .btn.btn-primary.sns-btn

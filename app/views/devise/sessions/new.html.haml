@@ -1,6 +1,7 @@
 .text-center{:style => "padding:50px 0"}
   .logo TECH::SHARE ログイン
   .login-form-1
+    = alert if alert
     #login-form.text-left
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form-main-message
