@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:google_oauth2]
   # association
   has_many :answers
@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :article
   has_many :sns_credentials
+
+  # validation
+  validates :email, {presence: true, format: { with: /\A[a-zA-Z0-9_\#!$%&`'*+\-{|}~^\/=?\.]+@di-v.co.jp/ }}
 
   # method
   def self.from_omniauth(auth)
