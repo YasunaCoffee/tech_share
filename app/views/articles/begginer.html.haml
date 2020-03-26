@@ -69,16 +69,51 @@
           .card-body いいナレッジの記事があればお気に入りに登録しましょう。記事のヘッダーにある投稿者名のとなりの☆をクリックするとお気に入りに登録することができます。お気に入りはナビバーにあるログイン名をクリックする名見ることができます。
           = link_to '#favorite-function', class: 'js-scrollBtn' do
             .text-right くわしく読む
-%section#article-function{ style: 'height: 500px;' }
+%section#article-function
   .container
     .row.align-items-center
-      .col-lg-6.order-lg-2
-        %h3 ナレッジ投稿・閲覧機能
-%section#question-function{ style: 'height: 500px;' }
+      %h4 ①ナレッジ投稿・閲覧機能
+      .pb-5.pr-5.pl-5
+        .card
+          .card-header.text-center
+            1.ナレッジ投稿のしかた
+          .p-5
+            .img-fluid
+              = image_tag 'postknow1'
+          .p-5
+            .img-fluid
+              = image_tag 'postknow2'
+          .p-5
+            .img-fluid
+              = image_tag 'postknow3'
+      .p-5
+        .card
+          .card-header.text-center
+            2.ナレッジ閲覧のしかた
+          .p-5
+            .img-fluid
+              = image_tag 'readknow1'
+          .p-5
+            .img-fluid
+              = image_tag 'readknow2'
+ 
+%section#question-function
   .container
     .row.align-items-center
-      .col-lg-6.order-lg-2
-        %h3 質問投稿・回答機能
+      %h4 ②質問投稿・回答機能
+      .p-5
+        .card
+          .card-header.text-center
+            1.質問投稿のしかた
+          .p-5
+            .img-fluid
+              = image_tag 'postknow1'
+          .p-5
+            .img-fluid
+              = image_tag 'postknow2'
+          .p-5
+            .img-fluid
+              = image_tag 'postknow3'
 %section#search-function{ style: 'height: 500px;' }
   .container
     .row.align-items-center
