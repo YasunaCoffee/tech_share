@@ -20,10 +20,13 @@
           .img-fluid.rounded-circle
             = image_tag 'knowledge'
       .col-lg-6
-        .p-5.card.bg-secondary
+        .p-5.card.bg-secondary.text-white
           = link_to '#article-function', class: 'js-scrollBtn' do
             %h2.display-5 ナレッジ投稿・閲覧機能
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+          .card-body 質問対応のナレッジを投稿・閲覧することができます。コメント機能を備えているのでナレッジに対して補足情報があれば誰でも書き込むことができます。また、ユーザーを選んでナレッジを閲覧することもできます。
+          = link_to '#article-function', class: 'js-scrollBtn' do
+            .text-right くわしく読む
+
 %section
   .container
     .row.align-items-center
@@ -32,10 +35,12 @@
           .img-fluid.rounded-circle
             = image_tag 'question'
       .col-lg-6.order-lg-1
-        .p-5.card.bg-secondary
+        .p-5.card.bg-secondary.text-white
           = link_to '#question-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn 質問投稿・回答機能
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+          .card-body 質問対応で困ったときに使える知恵袋機能を使うことができます。質問をスレッドとして回答を投稿し、回答に対してもコメントをすることができます。問題解決をどんどんしていきましょう！
+          = link_to '#question-function', class: 'js-scrollBtn' do
+            .text-right くわしく読む
 %section
   .container
     .row.align-items-center
@@ -44,10 +49,12 @@
           .img-fluid.rounded-circle
             = image_tag 'typing'
       .col-lg-6
-        .p-5.card.bg-secondary
+        .p-5.card.bg-secondary.text-white
           = link_to '#search-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn 検索機能
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
+          .card-body トップページのヘッダーにはサーチバーがあります。検索バーにはナレッジと質問に関するキーワードを入力すると関連した記事を簡単に探すことができます。またナビバーにはユーザー検索ボタンがあり、ユーザーを検索する検索バーから探すことができます。
+          = link_to '#search-function', class: 'js-scrollBtn' do
+            .text-right くわしく読む
 %section
   .container
     .row.align-items-center
@@ -56,28 +63,30 @@
           .img-fluid.rounded-circle
             = image_tag 'like'
       .col-lg-6.order-lg-1
-        .p-5.card.bg-secondary
+        .p-5.card.bg-secondary.text-white
           = link_to '#favorite-function', class: 'js-scrollBtn' do
             %h2.display-5.js-scrollBtn お気に入り機能
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
-  %section#article-function{ style: 'height: 500px;' }
-    .container
-      .row.align-items-center
-        .col-lg-6.order-lg-2
-          %h3 ナレッジ投稿・閲覧機能
-  %section#question-function{ style: 'height: 500px;' }
-    .container
-      .row.align-items-center
-        .col-lg-6.order-lg-2
-          %h3 質問投稿・回答機能
-  %section#search-function{ style: 'height: 500px;' }
-    .container
-      .row.align-items-center
-        .col-lg-6.order-lg-2
-          %h3 検索機能
-  %section#favorite-function{ style: 'height: 500px;' }
-    .container
-      .row.align-items-center
-        .col-lg-6.order-lg-2
-          %h3 お気に入り機能
+          .card-body いいナレッジの記事があればお気に入りに登録しましょう。記事のヘッダーにある投稿者名のとなりの☆をクリックするとお気に入りに登録することができます。お気に入りはナビバーにあるログイン名をクリックする名見ることができます。
+          = link_to '#favorite-function', class: 'js-scrollBtn' do
+            .text-right くわしく読む
+%section#article-function{ style: 'height: 500px;' }
+  .container
+    .row.align-items-center
+      .col-lg-6.order-lg-2
+        %h3 ナレッジ投稿・閲覧機能
+%section#question-function{ style: 'height: 500px;' }
+  .container
+    .row.align-items-center
+      .col-lg-6.order-lg-2
+        %h3 質問投稿・回答機能
+%section#search-function{ style: 'height: 500px;' }
+  .container
+    .row.align-items-center
+      .col-lg-6.order-lg-2
+        %h3 検索機能
+%section#favorite-function{ style: 'height: 500px;' }
+  .container
+    .row.align-items-center
+      .col-lg-6.order-lg-2
+        %h3 お気に入り機能
 
