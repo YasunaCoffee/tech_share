@@ -50,6 +50,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def information
+  end
+
   private
 
   def article_params

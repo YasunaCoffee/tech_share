@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :article_comments, only: [:create, :destroy]
   end
 
+  get 'information', to: 'articles#information'
+
   resources :tags
 
  end
