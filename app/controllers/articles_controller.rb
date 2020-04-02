@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def begginer
+  def information
   end
 
   private
