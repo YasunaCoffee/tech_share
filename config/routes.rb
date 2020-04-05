@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     get 'users_index'
   end
 
+  namespace :api, defaults: { format: :json } do
+    resources :tags, only: :create do
+      collection do
+        get 'search'
+      end
+    end
+  end
+
   resources :questions do
     resources :answers, only: [:create, :destroy] do
       resources :answer_comments, only: [:create, :destroy]
