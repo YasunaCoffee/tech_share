@@ -17,6 +17,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # ここに画像のアップトードをするのか
+    # imageだけDBに保存するアクションを作った方が良いのか
+    # その場合に記事との関連はどうするのか
     article = current_user.articles.new(article_params)
     if article.save
       begin
