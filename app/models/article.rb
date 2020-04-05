@@ -5,4 +5,5 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_one_attached :image
 end
