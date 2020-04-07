@@ -3,13 +3,22 @@
   .col-md-8
     = form_with model: @question, local: true do |f|
       .form-group
-        = f.label "タグを選ぶ(任意)", for: "exampletitle" ,class: "pr-3"
-        .alert.alert-secondary
-          = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name)
-          =link_to "タグを登録する", new_tag_path ,class: "pl-3"
-        = f.label "タイトル", for: "exampletitle"
-        = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
-        %br
-          = f.label "質問内容", for: "examplecontent"
-          = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "10"
-        = f.submit "質問を投稿する", class: "btn btn-outline-warning btn-block mt-2"
+        = f.label "タグを選ぶ(必須)", for: "exampletitle" ,class: "pr-3"
+        .form-row
+          .form-group.col-6.container
+            .row
+              .col-8
+                = text_field_tag :tag, :name, value: "", placeholder: 'タグを検索', class: "form-control js-tag_name_field"
+                %ul.list-group.tag_list.js-tag_list
+              .col-4
+                %button{class: 'btn btn-info js-create_tag'}
+                  タグを作成
+          .col-6.card.pd0
+            .card-header 選択中のタグ
+            .card-body.js-selected_tags
+      = f.label "タイトル", for: "exampletitle"
+      = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+      %br
+        = f.label "質問内容", for: "examplecontent"
+        = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "10"
+      = f.submit "質問を投稿する", class: "btn btn-outline-warning btn-block mt-2"
