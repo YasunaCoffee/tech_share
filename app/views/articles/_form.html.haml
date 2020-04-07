@@ -8,7 +8,8 @@
             = text_field_tag :tag, :name, value: "", placeholder: 'タグを検索', class: "form-control js-tag_name_field"
             %ul.list-group.tag_list.js-tag_list
           .col-4
-            = button_to 'タグを作成', "", class: 'btn btn-info js-create_tag'
+            %button{class: 'btn btn-info js-create_tag'}
+              タグを作成
       .col-6.card.pd0
         .card-header 選択中のタグ
         .card-body.js-selected_tags
