@@ -6,19 +6,31 @@
       .col-lg-6.order-lg-2
         .p-5
           .img-fluid.rounded-circle
-            = image_tag 'share'
-
+            = image_tag 'share.jpg'
       .col-lg-6.order-lg-1
         .p-5
           %h2.display-4 TECH::SHAREへようこそ！
-          %p このサイトはメンターのための質問対応お役立ち「ナレッジサイト」です。ひとりひとりが持っている素晴らしい知識をTESH::SHAREによってすべてのメンターへシェアしていきます。
+          %br
+          %h4 概要
+          %p このサイトは質問対応に役立つ「ナレッジサイト」です。対象者はすべてのメンターです
+%section
+  .container
+    .row.align-items-center
+      .col-lg-6.order-lg-2
+        .p-5
+          %h4 管理者
+          %p 井上雄貴, 笠原真里奈, 内藤楓賀, 古城戸隆志, 三浦靖奈, 山西一史 (50音順)
+      .col-lg-6.order-lg-1
+        .p-5
+          %h4 サイトの目的
+          %p 信頼性のある質問対応ナレッジを一括管理し、検索できることでメンタリングの質を一定レベルに保ち質問対応時間を短縮するため
 %section
   .container
     .row.align-items-center
       .col-lg-6
         .p-5
           .img-fluid.rounded-circle
-            = image_tag 'knowledge'
+            = image_tag 'knowledge.jpg'
       .col-lg-6
         .p-5.card.bg-secondary.text-white
           = link_to '#article-function', class: 'js-scrollBtn' do
@@ -33,7 +45,7 @@
       .col-lg-6.order-lg-2
         .p-5
           .img-fluid.rounded-circle
-            = image_tag 'question'
+            = image_tag 'question.jpg'
       .col-lg-6.order-lg-1
         .p-5.card.bg-secondary.text-white
           = link_to '#question-function', class: 'js-scrollBtn' do
@@ -47,7 +59,7 @@
       .col-lg-6
         .p-5
           .img-fluid.rounded-circle
-            = image_tag 'typing'
+            = image_tag 'typing.jpg'
       .col-lg-6
         .p-5.card.bg-secondary.text-white
           = link_to '#search-function', class: 'js-scrollBtn' do
@@ -61,7 +73,7 @@
       .col-lg-6.order-lg-2
         .p-5
           .img-fluid.rounded-circle
-            = image_tag 'like'
+            = image_tag 'like.jpg'
       .col-lg-6.order-lg-1
         .p-5.card.bg-secondary.text-white
           = link_to '#favorite-function', class: 'js-scrollBtn' do
@@ -79,23 +91,23 @@
             1.ナレッジ投稿のしかた
           .p-5
             .img-fluid
-              = image_tag 'postknow1'
+              = image_tag 'postknow1.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow2'
+              = image_tag 'postknow2.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow3'
+              = image_tag 'postknow3.png'
       .p-5
         .card
           .card-header.text-center
             2.ナレッジ閲覧のしかた
           .p-5
             .img-fluid
-              = image_tag 'readknow1'
+              = image_tag 'readknow1.png'
           .p-5
             .img-fluid
-              = image_tag 'readknow2'
+              = image_tag 'readknow2.png'
  
 %section#question-function
   .container
@@ -107,13 +119,13 @@
             1.質問投稿のしかた
           .p-5
             .img-fluid
-              = image_tag 'postknow1'
+              = image_tag 'postknow1.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow2'
+              = image_tag 'postknow2.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow3'
+              = image_tag 'postknow3.png'
 %section#search-function
   .container
     .row.align-items-center
@@ -124,14 +136,14 @@
             1.ナレッジ・質問検索のしかた
           .p-5
             .img-fluid
-              = image_tag 'search1'
+              = image_tag 'search1.png'
       .p-5
         .card
           .card-header.text-center
             2.ユーザー検索のしかた
           .p-5
             .img-fluid
-              = image_tag 'user-search'
+              = image_tag 'user-search.png'
 %section#favorite-function
   .container
     .row.align-items-center
@@ -142,9 +154,9 @@
             1.お気に入り追加・一覧表示のしかた
           .p-5
             .img-fluid
-              = image_tag 'favorite1'
+              = image_tag 'favorite1.png'
           .p-5
             .img-fluid
-              = image_tag 'favorite2'
+              = image_tag 'favorite2.png'
 
 
