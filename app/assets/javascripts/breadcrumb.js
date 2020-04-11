@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function() {
   $('.nav-item').each(function(i,ele){
-    console.log(ele)
     ele.classList.remove('active')
   })
   if (location.pathname === '/begginer'){

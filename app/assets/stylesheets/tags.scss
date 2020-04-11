@@ -1,0 +1,23 @@
+.tag_list {
+  .list-group-item {
+    height: 2rem;
+    padding: 0.25rem 0.75rem;
+    overflow: hidden;
+  }
+}
+
+.tag_list {
+  .add_tag_btn {
+    padding: 0 0.5rem;
+  }
+}
+
+.pd0 {
+  padding: 0 !important;
+}
+
+.selected-tag {
+  margin-bottom: 5px;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+}
