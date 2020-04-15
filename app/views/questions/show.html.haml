@@ -15,10 +15,11 @@
         %h4.alert-heading
           = @question.title
         - if current_user.id == @question.user.id
-          .edit-btn.d-flex.justify-content-end
-            = link_to '編集', edit_question_path(@question)
-          .delete-btn
-            = link_to '削除', question_path(@question), method: :delete
+          .d-flex.justify-content-end
+            .btn.pr-3
+              = link_to '編集', edit_question_path(@question),class: "edit-btn"
+            .btn
+              = link_to '削除', question_path(@question), method: :delete,class: "delete-btn"
         %hr
         %p.mb-0
           = markdown(@question.content).html_safe
