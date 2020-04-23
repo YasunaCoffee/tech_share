@@ -83,7 +83,6 @@ gem 'sassc', '2.1.0'
 
 gem 'enum_help'
 gem 'bootstrap'
-gem 'slack-notifier'
 gem 'devise'
 
 gem 'omniauth-google-oauth2'
@@ -91,3 +90,5 @@ gem "omniauth-rails_csrf_protection"
 
 gem 'asset_sync'
 gem 'fog-aws'
+
+gem 'slack-ruby-client'

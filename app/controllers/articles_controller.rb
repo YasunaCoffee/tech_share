@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     if @article.save
       begin
-        post_notification(article)
+        post_notification(@article)
       rescue => exception
         redirect_to root_path
       else
@@ -64,20 +64,23 @@ class ArticlesController < ApplicationController
   end
 
   def post_notification(article)
-    notification = Slack::Notifier.new "https://hooks.slack.com/services/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"
-      message = {
-                  "fallback": "Tech::Shareに新しい記事が投稿されました。",
-                  "color": "#8888",
-                  "pretext": "<!here> Tech::Shareに新しい記事が投稿されました。",
-                  "author_name": "user_name",
-                  "author_link": "user_mypage_url",
-                  "author_icon": "https://icon-pit.com/wp-content/uploads/2018/10/person_icon_364-300x300.png",
-                  "title": "#{article.title}\nhttp://localhost:3000/articles/#{article.id}",
-                  "title_link": "http://localhost:3000/articles/#{article.id}",
-                  "text": "#{article.content}",
-                  "image_url": "https://i0.wp.com/pg-work.com/wp-content/uploads/2019/08/TECHEXPERT-e1533109650694.png?resize=727%2C222&ssl=1"
-                }
-      notification.post attachments: [message]
-  end
+    require 'slack-ruby-client'
 
+    Slack.configure do |config|
+      # APIトークンを設定
+      config.token = Rails.application.credentials[:slack_token]
+      config.token = 'xoxb-81666833746-1063177306068-5N57GhdI1F5wRF9UxC9VuenL'
+    end
+
+    # APIクライアントを生成
+    client = Slack::Web::Client.new
+
+    # チャンネル名 of @ユーザー名
+    channel = '#slack_api_test_channel'
+
+    # メッセージ
+      client.chat_postMessage(channel: '#slack_api_test_channel',
+                                 blocks: [{"type": "section", "text": {"type": "mrkdwn", "text": "@here *◎TECH::SHAREに新しい記事が投稿されました* ```#{article.title}(#{article.user.nickname})``` http://localhost:3000/articles/#{article.id}"}}],
+                                 as_user: true)  
+  end
 end
