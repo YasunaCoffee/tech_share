@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new(article_params)
     if @article.save
       begin
-        post_notification(article)
+        post_notification(@article)
       rescue => exception
         redirect_to root_path
       else
@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
     end
   end
-  
+
   def edit
   end
 
@@ -64,16 +64,16 @@ class ArticlesController < ApplicationController
   end
 
   def post_notification(article)
-    notification = Slack::Notifier.new "https://hooks.slack.com/services/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"
+    notification = Slack::Notifier.new Rails.application.credentials.slack[:web_hook]
       message = {
                   "fallback": "Tech::Shareに新しい記事が投稿されました。",
                   "color": "#8888",
                   "pretext": "<!here> Tech::Shareに新しい記事が投稿されました。",
-                  "author_name": "user_name",
-                  "author_link": "user_mypage_url",
+                  "author_name": article.user.nickname,
+                  "author_link": user_path(article.user),
                   "author_icon": "https://icon-pit.com/wp-content/uploads/2018/10/person_icon_364-300x300.png",
-                  "title": "#{article.title}\nhttp://localhost:3000/articles/#{article.id}",
-                  "title_link": "http://localhost:3000/articles/#{article.id}",
+                  "title": "#{article.title}\n#{root_url}articles/#{article.id}",
+                  "title_link": "#{root_url}articles/#{article.id}",
                   "text": "#{article.content}",
                   "image_url": "https://i0.wp.com/pg-work.com/wp-content/uploads/2019/08/TECHEXPERT-e1533109650694.png?resize=727%2C222&ssl=1"
                 }
