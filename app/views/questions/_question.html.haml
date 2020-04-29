@@ -1,8 +1,7 @@
 .alert.alert-warning
   %h5.alert-heading
-    .fas.fa-question-circle
-      = link_to question_path(question),class: "alert-link" do
-        = question.title
+    = link_to question_path(question),class: "alert-link" do
+      = question.title
   %hr
     .d-flex.justify-content-between
       .name

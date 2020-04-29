@@ -16,9 +16,9 @@
             - if current_user.id == @article.user.id
               .d-flex.justify-content-end
                 .edit-btn.pr-3
-                  = link_to '編集', edit_article_path(@article)
+                  = link_to '編集', edit_article_path(@article) , class: 'link-white'
                 .delete-btn
-                  = link_to '削除', article_path(@article), method: :delete
+                  = link_to '削除', article_path(@article), method: :delete, class: 'link-white'
           .d-flex.justify-content-end
             .favorites_buttons{data: {article: {id: @article.id}}}
               = render partial: 'favorites/favorite', locals: {article: @article, favorite: @favorite}
