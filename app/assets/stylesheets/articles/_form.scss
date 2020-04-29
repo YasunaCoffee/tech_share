@@ -1,0 +1,24 @@
+.main-form {
+  height: calc(100vh - 200px);
+  &__form {
+    height: 100%;
+  }
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    flex-grow: 1;
+  }
+}
+
+.preview-card {
+  &__header {
+    height: 3rem;
+  }
+
+  &__content {
+    height: calc(100vh - 200px - 3rem);
+  }
+}

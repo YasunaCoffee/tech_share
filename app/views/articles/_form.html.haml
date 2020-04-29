@@ -1,21 +1,32 @@
-= form_with model: @article, local: true do |f|
-  .form-group
-    = f.label "タグを選ぶ(必須)", for: "exampletitle" ,class: "pr-3"
-    .form-row
-      .form-group.col-6.container
-        .row
-          .col-8
-            = text_field_tag :tag, :name, value: "", placeholder: 'タグを検索', class: "form-control js-tag_name_field"
-            %ul.list-group.tag_list.js-tag_list
-          .col-4
-            %button{class: 'btn btn-info js-create_tag'}
-              タグを作成
-      .col-6.card.pd0
-        .card-header 選択中のタグ
-        .card-body.js-selected_tags
-    = f.label "タイトル", for: "exampletitle"
-    = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1", required: true
-    %br
-      = f.label "内容", for: "examplecontent"
-      = f.text_area :content, id: "examplecontent", class: "form-control",placeholder: "```コードブロックが使えます```", rows: "14", required: true
-    = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
+.row.pb-5.row-eq-height
+  .col-6.main-form
+    = form_with model: resource, class: 'main-form__form', local: true do |f|
+      .form-group.main-form__wrapper
+        .js-resource_info
+          = f.label "タグを選ぶ(必須)" ,class: "pr-3"
+          .form-row
+            .form-group.col-6.container
+              .row
+                .col-8
+                  = text_field_tag :tag, :name, value: "", placeholder: 'タグを検索', class: "form-control js-tag_name_field"
+                  %ul.list-group.tag_list.js-tag_list
+                .col-4
+                  %button{class: 'btn-sm btn-info js-create_tag'}
+                    作成
+            .col-6.card.pd0
+              .card-header 選択中のタグ
+              .card-body.js-selected_tags
+          = f.label "タイトル", for: "exampletitle"
+          = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
+          .js-hide_btn
+            △基本情報を隠す
+        .js-appear_btn.d-none
+          ▶︎基本情報を表示
+        = f.text_area :content, id: "examplecontent", class: "form-control main-form__content js-mb_form",placeholder: "内容", rows: "10"
+        = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
+  .col-6
+    .card.h-100
+      .card-header
+        プレビュー
+      .card-body.mh-100.js-mb_body.overflow-auto.preview-card__content
+        = markdown(resource.content)&.html_safe
