@@ -12,12 +12,11 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(mb_content) {
-      console.log(mb_content)
       $('.js-mb_body').empty()
       $('.js-mb_body').append(mb_content.content)
     })
     .fail(function(e){
-      console.log(e.status)
+      alert(e.status)
     })
   })
 })
