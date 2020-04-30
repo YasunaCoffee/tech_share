@@ -1,5 +1,3 @@
-= link_to "検索へ", "#search-function",class: "js-btn"
-
 %section
   .container
     .row.align-items-center
@@ -33,10 +31,10 @@
             = image_tag 'knowledge.jpg'
       .col-lg-6
         .p-5.card.bg-secondary.text-white
-          = link_to '#article-function', class: 'js-scrollBtn' do
+          = link_to '#article-function', class: 'js-scrollBtn link-white' do
             %h2.display-5 ①ナレッジ投稿・閲覧機能
           .card-body 質問対応のナレッジを投稿・閲覧することができます。コメント機能を備えているのでナレッジに対して補足情報があれば誰でも書き込むことができます。また、ユーザーを選んでナレッジを閲覧することもできます。
-          = link_to '#article-function', class: 'js-scrollBtn' do
+          = link_to '#article-function', class: 'js-scrollBtn link-white' do
             .text-right くわしく読む
 
 %section
@@ -48,10 +46,10 @@
             = image_tag 'question.jpg'
       .col-lg-6.order-lg-1
         .p-5.card.bg-secondary.text-white
-          = link_to '#question-function', class: 'js-scrollBtn' do
+          = link_to '#question-function', class: 'js-scrollBtn link-white' do
             %h2.display-5.js-scrollBtn ②質問投稿・回答機能
           .card-body 質問対応で困ったときに使える知恵袋機能を使うことができます。質問をスレッドとして回答を投稿し、回答に対してもコメントをすることができます。問題解決をどんどんしていきましょう！
-          = link_to '#question-function', class: 'js-scrollBtn' do
+          = link_to '#question-function', class: 'js-scrollBtn link-white' do
             .text-right くわしく読む
 %section
   .container
@@ -62,10 +60,10 @@
             = image_tag 'typing.jpg'
       .col-lg-6
         .p-5.card.bg-secondary.text-white
-          = link_to '#search-function', class: 'js-scrollBtn' do
+          = link_to '#search-function', class: 'js-scrollBtn link-white' do
             %h2.display-5.js-scrollBtn ③検索機能
           .card-body トップページのヘッダーにはサーチバーがあります。検索バーにはナレッジと質問に関するキーワードを入力すると関連した記事を簡単に探すことができます。またナビバーにはユーザー検索ボタンがあり、ユーザーを検索する検索バーから探すことができます。
-          = link_to '#search-function', class: 'js-scrollBtn' do
+          = link_to '#search-function', class: 'js-scrollBtn link-white' do
             .text-right くわしく読む
 %section
   .container
@@ -76,28 +74,25 @@
             = image_tag 'like.jpg'
       .col-lg-6.order-lg-1
         .p-5.card.bg-secondary.text-white
-          = link_to '#favorite-function', class: 'js-scrollBtn' do
+          = link_to '#favorite-function', class: 'js-scrollBtn link-white' do
             %h2.display-5.js-scrollBtn ④お気に入り機能
           .card-body いいナレッジの記事があればお気に入りに登録しましょう。記事のヘッダーにある投稿者名のとなりの☆をクリックするとお気に入りに登録することができます。お気に入りはナビバーにあるログイン名をクリックする名見ることができます。
-          = link_to '#favorite-function', class: 'js-scrollBtn' do
+          = link_to '#favorite-function', class: 'js-scrollBtn link-white' do
             .text-right くわしく読む
 %section#article-function
   .container
     .row.align-items-center
-      %h4 ①ナレッジ投稿・閲覧機能
+      %h4 ナレッジ投稿・閲覧機能
       .pb-5.pr-5.pl-5
         .card
           .card-header.text-center
             1.ナレッジ投稿のしかた
           .p-5
             .img-fluid
-              = image_tag 'postknow1.png'
+              = image_tag 'post-knowledge.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow2.png'
-          .p-5
-            .img-fluid
-              = image_tag 'postknow3.png'
+              = image_tag 'post-knowledge2.png'
       .p-5
         .card
           .card-header.text-center
@@ -111,24 +106,21 @@
 %section#question-function
   .container
     .row.align-items-center
-      %h4 ②質問投稿・回答機能
+      %h4 質問投稿・回答機能
       .pb-5.pr-5.pl-5
         .card
           .card-header.text-center
             1.質問投稿のしかた
           .p-5
             .img-fluid
-              = image_tag 'postknow1.png'
+              = image_tag 'post-knowledge.png'
           .p-5
             .img-fluid
-              = image_tag 'postknow2.png'
-          .p-5
-            .img-fluid
-              = image_tag 'postknow3.png'
+              = image_tag 'post-knowledge2.png'
 %section#search-function
   .container
     .row.align-items-center
-      %h4 ③検索機能
+      %h4 検索機能
       .pb-5.pr-5.pl-5
         .card
           .card-header.text-center
@@ -146,7 +138,7 @@
 %section#favorite-function
   .container
     .row.align-items-center
-      %h4 ④お気に入り機能
+      %h4 お気に入り機能
       .pb-5.pr-5.pl-5
         .card
           .card-header.text-center
