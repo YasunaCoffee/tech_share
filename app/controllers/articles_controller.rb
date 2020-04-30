@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show, :search]
 
   def index
-    @articles = Article.all.order(updated_at: :desc)
+    @articles = Article.order(updated_at: :desc)
   end
 
   def show
