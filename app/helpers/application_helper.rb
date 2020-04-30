@@ -52,7 +52,6 @@ module ApplicationHelper
           list: true
       }
       markdown = Redcarpet::Markdown.new(html_render, options)
-    #   markdown = Redcarpet::Markdown.new(CustomRender, list: true)
       markdown.render(text)
   end
 end
