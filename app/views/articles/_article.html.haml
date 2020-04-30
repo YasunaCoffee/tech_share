@@ -1,13 +1,16 @@
 .alert.alert-dark{role: "alert"}
   .d-flex.justify-content-between
     %h5.alert-heading
-      .fas.fa-book
       = link_to article_path(article),class: "alert-link" do
         = article.title
     %p
       投稿者：
       =article.user.nickname
   %hr
+  .d-flex.justify-content-between
     -article.tags.each do |tag|
       =tag.name
+    .date
+      最終更新：
+      =article.updated_at.strftime("%Y年%-m月%-d日")
 

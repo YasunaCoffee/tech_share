@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show, :search]
 
   def index
-    @questions = Question.all
+    @questions = Question.order(updated_at: :desc)
   end
   
   def show

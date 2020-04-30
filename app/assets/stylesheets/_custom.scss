@@ -6,10 +6,6 @@
     background-color:#212529;
 }
 
-a{
-    color: #0465C0;
-    font-weight: bold;
-}
 
 .bg-black{
   background-color:  #1D1D1D;
@@ -40,3 +36,183 @@ img{
 .edit-btn, .delete-btn{
     color: #000
 }
+
+.link-white {
+    color: #FFF;
+}
+
+h2 {
+    color: #000;/*文字色*/
+    border: solid 3px #000;/*線色*/
+    padding: 0.5em;/*文字周りの余白*/
+    border-radius: 0.5em;/*角丸*/
+  }
+
+h3 {
+    position: relative;
+    padding-left: 25px;
+  }
+  
+  h3:before {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    border-left: solid 15px transparent;
+    border-bottom: solid 15px #67D9B8;
+  }
+  h3:after {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 10px;
+    width: 100%;
+    border-bottom: solid 3px #67D9B8;
+  }
+
+h4 {
+    position: relative;
+    padding-left: 1.2em;/*アイコン分のスペース*/
+    line-height: 1.4;
+  }
+  
+  h4:before {
+    font-family: FontAwesome;
+    content: "\f00c";/*アイコンのユニコード*/
+    position: absolute;/*絶対位置*/
+    font-size: 1em;/*サイズ*/
+    left: 0;/*アイコンの位置*/
+    top: 0;/*アイコンの位置*/
+    color: #FF9800; /*アイコン色*/
+  }
+
+  h5 {
+    position: relative;
+    padding-left: 30px;
+    color:#000;
+  }
+  
+  h5:before {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f121";
+    background: #343A40;
+    color: #67D9B8;
+    font-size: 15px;
+    border-radius: 50%;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  blockquote {
+    position: relative;
+    padding: 10px 25px;
+    box-sizing: border-box;
+    font-style: italic;
+    color: #464646;
+    border: solid 3px #EEEEEE;
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 0 0 30px;
+    content: "\f10d";
+    font-family: FontAwesome;
+    background: #67D9B8;
+    color: #EEEEEE;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+blockquote p {
+    position: relative;
+    padding: 0;
+    margin: 10px 0;
+    z-index: 3;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+
+.ol-markdown {
+    counter-reset:number; /*数字をリセット*/
+    list-style-type: none!important; /*数字を一旦消す*/
+    padding:0.5em;
+    background: #f5faff;
+  }
+  .li-markdown {
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.5em;
+    padding: 0.5em 0.5em 0.5em 30px;
+  }
+  
+  .li-markdown:before{
+    /* 以下数字をつける */
+    position: absolute;
+    counter-increment: number;
+    content: counter(number);
+    /*以下数字のデザイン変える*/
+    display:inline-block;
+    background: #67D9B8;
+    color: #FFF5E5;
+    font-family: 'Avenir','Arial Black','Arial',sans-serif;
+    font-weight:bold;
+    font-size: 15px;
+    border-radius: 50%;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    /*以下 上下中央寄せのため*/
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  em{
+    font-style: italic;	
+  }
+
+  .table-markdown {
+    text-align: center;
+    border: solid 2px orange;/*表全体を線で囲う*/
+  }
+
+  th {
+    color: #FF9800;/*文字色*/
+    font-weight: bold;
+    background: #fff5e5;/*背景色*/
+    border: solid 2px orange;/*表全体を線で囲う*/
+    padding: 10px;
+  }
+
+  td{
+    text-align: center;
+    padding: 8px;
+  }
+
+table td {
+    border: dashed 1px orange;/**/
+  }
