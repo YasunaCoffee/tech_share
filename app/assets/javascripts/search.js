@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function (results) {
-        $('.search_result').empty();
+      $('.search_result').empty();
       let addHTML = ''
 
       if (results.articles) {
@@ -19,15 +19,14 @@ $(document).on('turbolinks:load', function() {
           addHTML += buildArticle(article);
         });
       }
-      
-      
+
       if (results.questions) {
         results.questions.forEach(function (question) {
           addHTML += buildQuestion(question);
         });
       }
-      
-        if (results.users) {
+
+      if (results.users) {
         results.users.forEach(function (user) {
           addHTML += buildUser(user);
         });
@@ -39,14 +38,11 @@ $(document).on('turbolinks:load', function() {
     })
   }
 
-
   // HTML要素をコピーして貼り付ける
   const buildArticle = function (article) {
     let tags = ''
-    let tag_name = ''
     article.tags.forEach(function (tag) {
-      tag_name = ' ' + tag.name;
-      tags += tag_name
+      tags += ` ${tag.name}`
     });
 
     const html =
@@ -91,22 +87,19 @@ $(document).on('turbolinks:load', function() {
     return html
   }
 
-
   const buildUser = function (user) {
     const html = `
       <div class="row">
         <div class="list-group col">
           <a class="list-group-item list-group-item-action" href="/users/${user.id}">${user.nickname}</a>
         </div>
-      </div>
-    `
+      </div>`
     return html
   }
-  
+
   // 検証からコピペできる
   // フロントの検索ボタンと、検索条件のボタンを削除する
-
-  if (location.pathname.match(/articles/)) {
+  if (location.pathname === '/articles' || location.pathname === '/' ) {
     $('#search').on('input', function () {
       searchFunction('/search/index')
     })
@@ -114,7 +107,7 @@ $(document).on('turbolinks:load', function() {
 
   if (location.pathname.match(/users/)) {
     $('.js-search-form').attr('placeholder', 'キーワードからユーザーを探す...')
-    $('#search').on('input', function () { 
+    $('#search').on('input', function () {
       searchFunction('/search/users_index')
     })
   }
