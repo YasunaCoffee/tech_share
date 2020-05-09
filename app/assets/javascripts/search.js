@@ -2,11 +2,18 @@ $(document).on('turbolinks:load', function() {
 
   const searchFunction = function (url) {
     const keyword = $('#search').val()
+    let tagIds = []
+    if($('.tag_ids')) {
+      $('.tag_ids').each(function(_, ele){
+        tagIds.push(ele.value)
+      })
+    }
     $.ajax({
       url: url,
       type: 'GET',
       data: {
-        search: keyword
+        search: keyword,
+        tag_ids: tagIds
       },
       dataType: 'json'
     })
