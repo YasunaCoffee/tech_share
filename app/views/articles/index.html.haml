@@ -1,10 +1,14 @@
 = render "template/header"
 .container-fluid.p-4
   .row
-    .col-md-2
+    .col-1
+    .col-2
+      = text_field_tag :tag, :name, value: "", placeholder: 'タグで絞り込む', class: "form-control js-tag_name_field"
+      %ul.list-group.tag_list.js-tag_list
+      .card-header 絞り込むタグ
+      .card-body.js-selected_tags
     .col-md-8
       .btn.btn-dark.active
         更新されたナレッジ
       .search_result
         = render @articles
-
