@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ArticleComment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-
   describe 'validation' do
     context '保存することができる' do
       it 'factoryの値を使って保存' do
