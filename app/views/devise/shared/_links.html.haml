@@ -1,19 +1,19 @@
 - if devise_mapping.omniauthable?
   .btn.btn-dark.sns-btn.mb-3
     - resource_class.omniauth_providers.each do |provider|
-      = link_to omniauth_authorize_path(resource_name, provider), method: :post do
+      = link_to omniauth_authorize_path(resource_name, provider), method: :post, class: 'link-white' do
         - if controller_name == "registrations"
           .fas.fa-campground
           divアカウントで登録
         - elsif controller_name == "sessions"
           .fas.fa-campground
-            divアカウントでログイン
+          divアカウントでログイン
       %br/
 .btn.btn-secondary.sns-btn.mb-3
   - if devise_mapping.confirmable? && controller_name != 'confirmations'
-    = link_to "認証メールを再送信する", new_confirmation_path(resource_name)
+    = link_to "認証メールを再送信する", new_confirmation_path(resource_name),class: 'link-white'
     %br/
   - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-    = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
+    = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name),class: 'link-white'
     %br/
 
