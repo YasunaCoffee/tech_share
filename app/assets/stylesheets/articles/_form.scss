@@ -10,6 +10,23 @@
   }
   &__content {
     flex-grow: 1;
+    position: relative;
+  }
+  &__file-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+    i {
+      font-size: 1.5rem;
+      color: #aaa;
+    }
+  }
+  &__file-field {
+    display: none;
+  }
+  .main-form__text-area {
+    height: 100%;
   }
 }
 
