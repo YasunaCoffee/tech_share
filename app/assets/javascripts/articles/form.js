@@ -25,10 +25,8 @@ $(document).on('turbolinks:load', function() {
     upload.create((error, blob) => {
       if (error) {
         // エラーハンドリングをここに書く
-        console.log(error)
       } else {
         // blobには返り値としてsigned_idが含まれており、これを利用することで画像の表示やコントローラでのattachができる
-        console.log(blob)
         // blobのsigned_idを送信するためのinputを作る
         const hiddenField = document.createElement('input')
         hiddenField.setAttribute("type", "hidden");
