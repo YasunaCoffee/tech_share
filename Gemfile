@@ -91,3 +91,6 @@ gem "omniauth-rails_csrf_protection"
 
 gem 'asset_sync'
 gem 'fog-aws'
+
+gem "aws-sdk-s3", require: false
+gem 'whenever'
