@@ -18,13 +18,17 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new(article_params)
+    params[:signed_ids].each do |signed_id|
+      @article.images.attach(signed_id)
+    end
     if @article.save
+      redirect_to @article and return unless Rails.env.production?
       begin
         post_notification(@article)
       rescue => exception
-        redirect_to root_path
+        redirect_to new_article_path
       else
-        redirect_to articles_path
+        redirect_to @article
       end
     else
       render :new
