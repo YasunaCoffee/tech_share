@@ -1,6 +1,6 @@
 .row.pb-5.row-eq-height
   .col-6.main-form
-    = form_with model: resource, class: 'main-form__form', local: true do |f|
+    = form_with model: @article, class: 'main-form__form js-main_form', local: true do |f|
       .form-group.main-form__wrapper
         .js-resource_info
           = f.label "タグを選ぶ(必須)" ,class: "pr-3"
@@ -22,11 +22,15 @@
             △基本情報を隠す
         .js-appear_btn.d-none
           ▶︎基本情報を表示
-        = f.text_area :content, id: "examplecontent", class: "form-control main-form__content js-mb_form",placeholder: "内容", rows: "10"
+        .main-form__content
+          = f.label :image, class: 'main-form__file-label' do
+            %i.far.fa-image
+            = f.file_field :image, direct_upload: true, class: 'main-form__file-field js-image_file_field', name: nil
+          = f.text_area :content, id: "examplecontent", class: "form-control main-form__text-area js-mb_form",placeholder: "内容", rows: "10"
         = f.submit "ナレッジを投稿する", class: "btn btn-outline-dark btn-block mt-2"
   .col-6
     .card.h-100
       .card-header
         プレビュー
       .card-body.mh-100.js-mb_body.overflow-auto.preview-card__content
-        = markdown(resource.content)&.html_safe
+        = markdown(@article.content)&.html_safe

@@ -1,9 +1,13 @@
 class Article < ApplicationRecord
+  # association
   has_many :article_comments, dependent: :destroy
   has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
   has_many :favorites, dependent: :destroy
   belongs_to :user
+  has_many_attached :images
+
+  # validation
   validates :title, presence: true
   validates :content, presence: true
   validates :tags, presence: true

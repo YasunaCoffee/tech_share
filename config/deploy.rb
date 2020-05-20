@@ -1,3 +1,7 @@
+# デプロイ先のcronにschedule.rbの内容を反映させる
+require "whenever/capistrano"
+set :whenever_command, "bundle exec whenever"
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
