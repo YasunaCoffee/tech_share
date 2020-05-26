@@ -18,9 +18,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new(article_params)
-    params[:signed_ids].each do |signed_id|
-      @article.images.attach(signed_id)
-    end
+    if params[:signed_ids]
+      params[:signed_ids].each do |signed_id|
+        @article.images.attach(signed_id)
+      end
+    end 
     if @article.save
       redirect_to @article and return unless Rails.env.production?
       begin
