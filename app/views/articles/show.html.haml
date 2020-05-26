@@ -18,7 +18,7 @@
                 .edit-btn.pr-3
                   = link_to '編集', edit_article_path(@article) , class: 'link-white'
                 .delete-btn
-                  = link_to '削除', article_path(@article), method: :delete, class: 'link-white'
+                  = link_to '削除', article_path(@article), method: :delete, class: 'link-white', data: { confirm: '削除しますか？' } 
           .d-flex.justify-content-end
             .favorites_buttons{data: {article: {id: @article.id}}}
               = render partial: 'favorites/favorite', locals: {article: @article, favorite: @favorite}

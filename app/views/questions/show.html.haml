@@ -19,7 +19,7 @@
             .btn.pr-3
               = link_to '編集', edit_question_path(@question),class: "edit-btn"
             .btn
-              = link_to '削除', question_path(@question), method: :delete,class: "delete-btn"
+              = link_to '削除', question_path(@question), method: :delete,class: "delete-btn", data: { confirm: '削除しますか？' } 
         %hr
         %p.mb-0
           = markdown(@question.content).html_safe
