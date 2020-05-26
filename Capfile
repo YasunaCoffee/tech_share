@@ -34,6 +34,8 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require "capistrano3/unicorn"
+
+# デプロイ先のcronにschedule.rbの内容を反映させる
 require "whenever/capistrano"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
