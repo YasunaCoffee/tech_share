@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.order(updated_at: :desc)
   end
-  
+
   def show
     @answer = Answer.new
     @answers = @question.answers
@@ -14,16 +14,16 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
   end
-  
+
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to @question
     else
       render :new
     end
   end
-  
+
   def destroy
     if @question.destroy
       redirect_to root_path
@@ -31,18 +31,18 @@ class QuestionsController < ApplicationController
       redirect_to @question
     end
   end
-  
+
   def edit
   end
 
   def update
     if @question.update(question_params)
-      redirect_to root_path
+      redirect_to @question
     else
       render :edit
     end
   end
-  
+
   private
 
   def question_params
