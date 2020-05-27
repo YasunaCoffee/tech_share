@@ -110,6 +110,12 @@ $(document).on('turbolinks:load', function() {
     $('#search').on('input', function () {
       searchFunction('/search/index')
     })
+    $('.js-tag_list').on('click', '.js-add_tag_btn', function(){
+      searchFunction('/search/index')
+    })
+    $('.js-selected_tags').on('click', '.js-selected_tag', function(){
+      searchFunction('/search/index')
+    })
   }
 
   if (location.pathname.match(/users/)) {
