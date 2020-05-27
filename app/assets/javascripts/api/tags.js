@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
   // タグ名とidを受け取り、タグ一覧へ追加する関数
   const appendTag = (name, id)=>{
     // articleかquestionかをpathnameから作成する
-    const resourceName = location.pathname.slice(1).slice(0,-5)
+    const resourceName = location.pathname.match(/\/.*?\//)[0].slice(1).slice(0,-2)
     const html = `<button class="btn btn-sm btn-outline-secondary rounded-pill selected-tag js-selected_tag">
                     <i class="far fa-times-circle" aria-hidden="true"></i>
                     <span>${name}</span>
