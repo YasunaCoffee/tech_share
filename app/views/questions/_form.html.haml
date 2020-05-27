@@ -16,6 +16,13 @@
             .col-6.card.pd0
               .card-header 選択中のタグ
               .card-body.js-selected_tags
+                - if @question.tags.present?
+                  - @question.tags.each do |tag|
+                    %button.btn.btn-sm.btn-outline-secondary.rounded-pill.selected-tag.js-selected_tag
+                      %i.far.fa-times-circle{"aria-hidden": "true"}
+                      %span #{tag.name}
+                      = hidden_field_tag :question, :tag_ids, multiple: true, name: "question[tag_ids][]", value: tag.id, class: 'tag_ids'
+
           = f.label "タイトル", for: "exampletitle"
           = f.text_field :title, id: "exampletitle", class: "form-control", rows: "1"
           .js-hide_btn
