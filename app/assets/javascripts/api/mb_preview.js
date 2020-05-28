@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
     const token = $('input[name=authenticity_token]').val()
     // api/markdown#previewを叩く
     $.ajax({
-      url: '/api/markdown/prevew',
+      url: '/api/markdown/preview',
       type: 'POST',
       data: {
         authenticity_token: token,
