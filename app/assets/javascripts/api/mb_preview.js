@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   if ($('.js-mb_body').length === 0) { return }
   $('.js-mb_form').on('input', function(){
     const content = $(this).val()
-    const token = $('input[name=authenticity_token]').val()
+    const token = $('meta[name=csrf-token]').attr('content')
     // api/markdown#previewを叩く
     $.ajax({
       url: '/api/markdown/preview',
