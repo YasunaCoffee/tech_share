@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       params[:signed_ids].each do |signed_id|
         @article.images.attach(signed_id)
       end
-    end 
+    end
     if @article.save
       redirect_to @article and return unless Rails.env.production?
       begin
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to root_path
+      redirect_to @article
     else
       render :edit
     end
